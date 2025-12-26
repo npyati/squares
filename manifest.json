@@ -1,0 +1,19 @@
+{
+  "background_color": "#3b393a",
+  "description": "a game of squares",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "squares",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "squares",
+  "start_url": "/",
+  "theme_color": "#3b393a",
+  "icons": [
+      {
+          "src": "/icons/squares512.png",
+          "sizes": "512x512",
+          "type": "image/png"
+      }
+  ]
+}
