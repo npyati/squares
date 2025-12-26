@@ -413,7 +413,7 @@ Hosted on GitHub Pages
 
     function difficulty_buttons() {
         var e = "";
-        e += "<div class='difficulty_button daily'>today's daily board</div>";
+        // e += "<div class='difficulty_button daily'>today's daily board</div>";
         var t = {
             0: {
                 label: "beginner",
@@ -574,15 +574,19 @@ Hosted on GitHub Pages
             top: n - 2 * button_height
         }), border_radius = e > 900 ? e / 180 : 5;
         var u = document.getElementById("gameboard").getBoundingClientRect();
+        var maxPopupHeight = Math.min(u.height * i, t * 0.9);
         $("#popup").css({
             width: o,
-            "max-height": u.height * i,
+            "max-height": maxPopupHeight,
             left: r,
             "border-radius": border_radius
         }), $("#popup_content").css({
             padding: l
         });
         var p = u.top + u.height / 2 - parseFloat($("#popup").css("height")) / 2;
+        var minTop = t * 0.05;
+        var maxTop = t - parseFloat($("#popup").css("height")) - t * 0.05;
+        p = Math.max(minTop, Math.min(p, maxTop));
         $("#popup").css({
             top: p
         }), $(".level_menu_item, .history_menu_item, .daily_menu_item").css({
