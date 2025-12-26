@@ -574,7 +574,7 @@ Hosted on GitHub Pages
             top: n - 2 * button_height
         }), border_radius = e > 900 ? e / 180 : 5;
         var u = document.getElementById("gameboard").getBoundingClientRect();
-        var maxPopupHeight = Math.min(u.height * i, t * 0.9);
+        var maxPopupHeight = Math.max(u.height * i, t * 0.85);
         $("#popup").css({
             width: o,
             "max-height": maxPopupHeight,
@@ -583,10 +583,10 @@ Hosted on GitHub Pages
         }), $("#popup_content").css({
             padding: l
         });
-        var p = u.top + u.height / 2 - parseFloat($("#popup").css("height")) / 2;
-        var minTop = t * 0.05;
-        var maxTop = t - parseFloat($("#popup").css("height")) - t * 0.05;
-        p = Math.max(minTop, Math.min(p, maxTop));
+        var p = Math.max(10, u.top + u.height / 2 - parseFloat($("#popup").css("height")) / 2);
+        if (p + parseFloat($("#popup").css("height")) > t - 10) {
+            p = t - parseFloat($("#popup").css("height")) - 10;
+        }
         $("#popup").css({
             top: p
         }), $(".level_menu_item, .history_menu_item, .daily_menu_item").css({
