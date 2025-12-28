@@ -158,7 +158,8 @@ Hosted on GitHub Pages
             max_sol: 3,
             number_text: 0,
             label_text: 0,
-            rules: 1
+            rules: 1,
+            fullscreen: 0
         };
     var freqs = null == localStorage.getItem("freqs") ? default_settings.freqs : JSON.parse(localStorage.getItem("freqs"));
     window.size = null == localStorage.getItem("size") ? default_settings.size : localStorage.getItem("size");
@@ -167,7 +168,8 @@ Hosted on GitHub Pages
         max_sol = null == localStorage.getItem("max_sol") ? default_settings.max_sol : localStorage.getItem("max_sol"),
         number_text = null == localStorage.getItem("number_text") ? default_settings.number_text : parseInt(localStorage.getItem("number_text")),
         label_text = null == localStorage.getItem("label_text") ? default_settings.label_text : parseInt(localStorage.getItem("label_text")),
-        rules = null == localStorage.getItem("rules") ? default_settings.rules : parseInt(localStorage.getItem("rules"));
+        rules = null == localStorage.getItem("rules") ? default_settings.rules : parseInt(localStorage.getItem("rules")),
+        fullscreen = null == localStorage.getItem("fullscreen") ? default_settings.fullscreen : parseInt(localStorage.getItem("fullscreen"));
 
     function apply_preset(e) {
         for (i = 0; i < e.length; i++) freqs[i] = e[i]
@@ -371,7 +373,7 @@ Hosted on GitHub Pages
     function settings() {
         popup_size = "large";
         var e = "";
-        e += difficulty_buttons(), e += "<hr>", e += "<div action='toggle_solution_count' target='#show_solution_checkbox' class='menu_row'>Show solution count <div id='show_solution_checkbox' class='checkbox " + (1 == show_solution_count ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='toggle_welcome' target='#show_welcome_checkbox' class='menu_row'>Show welcome<div id='show_welcome_checkbox' class='checkbox " + (1 == show_welcome ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_rules' target='#show_rules' class='menu_row'>Show rules guide<div id='show_rules' class='checkbox " + (1 == rules ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_numbers' target='#show_numbers_checkbox' class='menu_row'>Show square numbers<div id='show_numbers_checkbox' class='checkbox " + (1 == number_text ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_labels' target='#show_labels_checkbox' class='menu_row'>Show square color labels<div id='show_labels_checkbox' class='checkbox " + (1 == label_text ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div class='menu_row'>Board size <select class='select' id='board_size'>";
+        e += difficulty_buttons(), e += "<hr>", e += "<div action='toggle_solution_count' target='#show_solution_checkbox' class='menu_row'>Show solution count <div id='show_solution_checkbox' class='checkbox " + (1 == show_solution_count ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='toggle_welcome' target='#show_welcome_checkbox' class='menu_row'>Show welcome<div id='show_welcome_checkbox' class='checkbox " + (1 == show_welcome ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_rules' target='#show_rules' class='menu_row'>Show rules guide<div id='show_rules' class='checkbox " + (1 == rules ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_numbers' target='#show_numbers_checkbox' class='menu_row'>Show square numbers<div id='show_numbers_checkbox' class='checkbox " + (1 == number_text ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='show_labels' target='#show_labels_checkbox' class='menu_row'>Show square color labels<div id='show_labels_checkbox' class='checkbox " + (1 == label_text ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div action='toggle_fullscreen' target='#fullscreen_checkbox' class='menu_row'>Fullscreen<div id='fullscreen_checkbox' class='checkbox " + (1 == fullscreen ? "checked" : "") + "'></div></div>", e += "<hr>", e += "<div class='menu_row'>Board size <select class='select' id='board_size'>";
         for (var t = 3; t < 13; t++) e += "<option " + (size == t ? "selected" : "") + " value=" + t + ">" + t + "</option>";
         e += "</select></div>", e += "<hr>", e += "<div class='menu_row' id='max_sol_row'>", e += max_solutions_select(), e += "</div><hr>", e += "<p>Color frequency</p>", e += "<div class='table'>";
         var a = [0, 1, 2, 3, 4, 5, 8, 6],
@@ -2349,6 +2351,21 @@ Hosted on GitHub Pages
                             break;
                         case 1:
                             label_text = 0, $(".label_text").hide(), $(e).removeClass("checked"), localStorage.setItem("label_text", label_text)
+                    }
+                    break;
+                case "toggle_fullscreen":
+                    switch (parseInt(fullscreen)) {
+                        case 0:
+                            fullscreen = 1, $(e).addClass("checked"), localStorage.setItem("fullscreen", fullscreen);
+                            if (document.documentElement.requestFullscreen) {
+                                document.documentElement.requestFullscreen();
+                            }
+                            break;
+                        case 1:
+                            fullscreen = 0, $(e).removeClass("checked"), localStorage.setItem("fullscreen", fullscreen);
+                            if (document.exitFullscreen) {
+                                document.exitFullscreen();
+                            }
                     }
                     break;
                 case "settings":
