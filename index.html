@@ -691,6 +691,13 @@ Hosted on GitHub Pages
     $(window).resize((function() {
         sizing()
     }));
+    document.addEventListener('fullscreenchange', (function() {
+        if (!document.fullscreenElement) {
+            fullscreen = 0;
+            localStorage.setItem("fullscreen", fullscreen);
+            $("#fullscreen_checkbox").removeClass("checked");
+        }
+    }));
     var m1 = function() {
             popup_size = "large";
             var e = "<div class='popup_heading'>Levels</div><hr/>";
