@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>squares</title>
+<style>
+  body { font-family: -apple-system, sans-serif; text-align: center; padding: 60px 20px; background: #f5f0e8; color: #1a1a1a; }
+  h1 { font-size: 24px; font-weight: 700; }
+  p { font-size: 16px; color: #666; margin-top: 12px; }
+  a { display: inline-block; margin-top: 24px; padding: 14px 32px; background: #1a1a1a; color: #f5f0e8; text-decoration: none; border-radius: 12px; font-weight: 600; font-size: 16px; }
+</style>
+<script>
+(function() {
+  var path = window.location.pathname;
+  var match = path.match(/^\/b\/(.+)$/);
+  if (!match) return;
+
+  var encoded = match[1];
+  var appURL = 'squares://board/' + encoded;
+  var appStoreURL = 'https://apps.apple.com/app/squares/id000000000'; // TODO: replace with real ID
+
+  window.location.href = appURL;
+
+  setTimeout(function() {
+    window.location.href = appStoreURL;
+  }, 1500);
+})();
+</script>
+</head>
+<body>
+  <h1>squares</h1>
+  <p>Opening the board in the app...</p>
+  <a href="https://apps.apple.com/app/squares/id000000000">Get Squares on the App Store</a>
+</body>
+</html>
