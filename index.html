@@ -96,20 +96,14 @@
   }
 
   .badge {
-    background: #1a1a1a;
-    color: white;
-    padding: 14px 32px;
-    border-radius: 12px;
-    font-family: 'Optic', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: block;
     cursor: pointer;
-    text-decoration: none;
     transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .badge img {
+    display: block;
+    height: 54px;
+    width: auto;
   }
   .badge:hover { transform: scale(1.03); opacity: 0.9; }
   .badge:active { transform: scale(0.98); }
@@ -118,7 +112,6 @@
     .logo span { color: #f5f0eb; }
     .tagline { color: #666; }
     .warn-line1, .warn-line2 { color: #f5f0eb; }
-    .badge { background: #f5f0eb; color: #1a1a1a; }
   }
 </style>
 </head>
@@ -132,7 +125,12 @@
   <div class="spacer"></div>
   <div class="warn-line1">It looks friendly.</div>
   <div class="warn-line2">It isn't.</div>
-  <a class="badge" href="https://apps.apple.com/us/app/squares-a-puzzle-game/id6761150555">download on the app store</a>
+  <a class="badge" href="https://apps.apple.com/us/app/squares-a-puzzle-game/id6761150555">
+    <picture>
+      <source srcset="img/app-store-badge-white.svg" media="(prefers-color-scheme: dark)">
+      <img src="img/app-store-badge-black.svg" alt="Download on the App Store">
+    </picture>
+  </a>
   <div style="margin-top:20px;font-size:11px;font-weight:400;">
     <a href="privacy.html" style="color:#bbb;text-decoration:none;">privacy</a>
     <span style="color:#ccc;margin:0 7px;">&middot;</span>
