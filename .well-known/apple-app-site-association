@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["AMU26MJZ53.com.npyati.squares"],
+        "components": [
+          { "/": "/b/*" }
+        ]
+      }
+    ]
+  }
+}

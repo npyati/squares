@@ -22,9 +22,18 @@
 
   window.location.href = appURL;
 
-  setTimeout(function() {
+  var fallback = setTimeout(function() {
     window.location.href = appStoreURL;
   }, 1500);
+
+  // If the app did open, this page is backgrounded — cancel the fallback so
+  // returning to the browser doesn't dump the user on the App Store.
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) clearTimeout(fallback);
+  });
+  window.addEventListener('pagehide', function() {
+    clearTimeout(fallback);
+  });
 })();
 </script>
 </head>
