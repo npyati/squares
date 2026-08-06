@@ -1,5 +1,48 @@
 # Squares
 
+[squaresga.me](https://squaresga.me) hosts two games. **Squares** is the headline and owns
+the root; **one · at · a · time** lives under `/oneatatime/`, and each links to the other.
+
+```
+/                       squares — landing page
+/squares.html           squares — the web game
+/privacy.html           squares — privacy
+/support.html           squares — support
+/b/*                    squares — shared board, opens the iOS app
+/daily/*.json           squares — daily challenge data
+/.well-known/…          squares — universal links (AMU26MJZ53.com.npyati.squares)
+
+/oneatatime/            one · at · a · time — landing page
+/oneatatime/play.html   one · at · a · time — the web game
+/oneatatime/privacy.html
+/oneatatime/support.html
+/oneatatime/img/        icons, and the wordmark lifted from the game's own SVG
+```
+
+Both games are static; GitHub Actions publishes the repo root to Pages on every push to
+`main`, injecting the licensed Optic faces from repository secrets (squares' pages only —
+one · at · a · time uses system rounded type and Google Fonts).
+
+### one · at · a · time
+
+A word ladder puzzle: turn one word into another by changing one letter at a time, with
+every step a real word. The source of truth for the game lives in
+[its own repo](https://github.com/npyati/oneatatime); `oneatatime/play.html` is that
+build with three changes, all marked in the file:
+
+- shared links point at `squaresga.me/oneatatime/play.html` rather than the GitHub Pages URL
+- jQuery is served from this site instead of the Google CDN
+- the settings menu carries an "about this game" link back out to the landing page
+
+It has **no doctype, deliberately** — the game's percentage heights were authored against
+quirks mode and adding one collapses the layout. Re-porting it from upstream means
+reapplying those three changes, not overwriting the file.
+
+The landing page's colours and its faded-history / delayed-glyph rules come from the iOS
+app's `Palette.swift`, so the two stay recognisably the same game. The App Store badge is
+commented out in `oneatatime/index.html` and the "on the way" line above it goes when the
+app ships.
+
 ---
 
 ## About

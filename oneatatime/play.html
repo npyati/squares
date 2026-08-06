@@ -1,0 +1,1357 @@
+<!-- No doctype, deliberately. This page's percentage heights (#header, #board) were
+     authored against quirks mode; adding one collapses the layout. -->
+<head>
+    <title>one at a time</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+    <meta name="description" content="A word ladder puzzle. Change one letter at a time — every step has to be a real word.">
+    <meta name="theme-color" content="#3b393a">
+    <link rel="canonical" href="https://squaresga.me/oneatatime/play.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon-180.png">
+    <meta property="og:title" content="one · at · a · time">
+    <meta property="og:description" content="A word ladder puzzle. Change one letter at a time — every step has to be a real word.">
+    <meta property="og:image" content="https://squaresga.me/oneatatime/img/icon-1024.png">
+    <meta property="og:url" content="https://squaresga.me/oneatatime/play.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<script id="logo">
+
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="451.000000pt" height="92.000000pt" viewBox="0 0 1451.000000 192.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(220.000000,162.000000) scale(0.070000,-0.070000)"
+fill="#fff" stroke="none">
+
+<g class="word-one">
+<path d="M1428 1166 c-57 -21 -85 -42 -116 -88 -23 -36 -27 -53 -30 -127 -3
+-78 -1 -91 25 -141 39 -76 91 -105 188 -105 56 0 79 5 115 25 62 35 101 100
+107 183 9 113 -31 203 -109 243 -43 22 -134 28 -180 10z m115 -57 c37 -29 50
+-81 46 -191 -3 -79 -8 -102 -25 -125 -43 -58 -101 -54 -140 10 -15 26 -19 51
+-19 132 0 113 14 158 54 180 36 20 54 18 84 -6z"/>
+<path d="M1865 1173 c-67 -8 -75 -13 -75 -39 0 -19 7 -28 30 -36 l30 -10 -2
+-162 c-3 -158 -3 -161 -25 -164 -17 -3 -23 -10 -23 -28 0 -24 0 -24 105 -24
+105 0 105 0 105 24 0 18 -6 25 -22 28 -23 3 -23 6 -26 154 l-3 151 28 18 c14
+10 45 20 67 22 33 4 45 1 61 -17 18 -20 20 -36 20 -174 0 -149 0 -151 -22
+-154 -17 -3 -23 -10 -23 -28 0 -24 0 -24 105 -24 l105 0 0 25 c0 20 -5 25 -25
+25 l-25 0 0 158 c0 189 -13 232 -75 252 -49 16 -117 6 -173 -25 -24 -14 -46
+-25 -48 -25 -1 0 -4 12 -6 28 -3 29 -19 34 -83 25z"/>
+<path d="M2500 1169 c-51 -15 -97 -54 -122 -102 -34 -64 -32 -194 3 -262 30
+-59 82 -93 157 -102 55 -6 146 16 181 44 19 16 20 21 9 36 -12 17 -16 17 -50
+2 -86 -35 -162 -10 -192 65 -32 81 -34 80 118 80 l134 0 7 38 c7 44 -6 112
+-29 147 -33 51 -139 77 -216 54z m105 -64 c20 -19 25 -34 25 -75 l0 -50 -81 0
+-82 0 6 45 c8 52 23 80 52 94 33 16 54 12 80 -14z"/>
+</g>
+
+<g class="dot">
+<path d="M3871 1009 c-41 -41 -42 -85 -2 -128 39 -41 82 -42 122 -2 21 22 29
+39 29 66 0 27 -8 44 -29 66 -40 39 -80 39 -120 -2z"/>
+</g>
+
+<g class="word-at">
+<path d="M5524 1228 c-15 -42 -26 -56 -51 -67 -44 -19 -45 -51 -3 -51 l30 0 0
+-179 c0 -156 2 -182 18 -201 24 -29 86 -36 153 -16 70 21 79 27 73 53 -5 20
+-11 21 -55 16 -77 -9 -79 -6 -79 173 l0 154 65 0 65 0 0 30 0 30 -65 0 -65 0
+0 55 0 55 -34 0 c-31 0 -35 -3 -52 -52z"/>
+<path d="M5084 1160 c-75 -24 -89 -38 -73 -73 l11 -25 42 19 c60 27 137 25
+164 -4 13 -13 22 -36 22 -53 0 -30 -1 -30 -80 -42 -135 -19 -190 -62 -190
+-150 0 -114 130 -168 234 -97 45 31 46 31 46 1 0 -31 26 -40 91 -31 43 6 49
+10 49 31 0 17 -6 24 -19 24 -18 0 -19 11 -23 163 -5 179 -13 209 -62 234 -48
+25 -142 26 -212 3z m166 -290 c0 -67 -1 -70 -30 -85 -63 -33 -120 -5 -120 58
+0 52 55 93 128 96 21 1 22 -3 22 -69z"/>
+</g>
+
+<g class="dot">
+<path d="M7111 1026 c-13 -7 -30 -24 -37 -37 -51 -92 72 -183 146 -109 43 43
+32 118 -21 145 -34 18 -57 18 -88 1z"/>
+</g>
+
+<g class="word-a">
+<path d="M8690 1162 c-92 -31 -100 -37 -87 -71 l10 -28 41 18 c51 23 134 25
+164 3 16 -11 22 -25 22 -53 l0 -37 -75 -12 c-127 -20 -182 -60 -191 -139 -7
+-49 21 -100 67 -125 45 -25 118 -18 171 17 l38 25 0 -25 c0 -31 32 -41 97 -29
+39 7 49 13 51 32 3 18 -1 22 -22 22 l-26 0 0 155 c0 171 -9 211 -54 240 -39
+26 -140 29 -206 7z m150 -291 c0 -61 -3 -72 -22 -85 -30 -21 -81 -20 -101 2
+-59 65 -4 147 101 151 21 1 22 -3 22 -68z"/>
+</g>
+
+<g class="dot">
+<path d="M10431 1026 c-13 -7 -30 -24 -37 -37 -51 -92 72 -183 146 -109 43 43
+32 118 -21 145 -34 18 -57 18 -88 1z"/>
+</g>
+
+<g class="word-time">
+<path d="M11654 1228 c-15 -42 -26 -56 -51 -67 -44 -19 -45 -51 -3 -51 l30 0
+0 -179 c0 -156 2 -182 18 -201 24 -29 86 -36 153 -16 70 21 79 27 73 53 -5 20
+-11 21 -55 16 -77 -9 -79 -6 -79 173 l0 154 65 0 65 0 0 30 0 30 -65 0 -65 0
+0 55 0 55 -34 0 c-31 0 -35 -3 -52 -52z"/>
+<path d="M11982 1364 c-31 -21 -31 -88 -1 -105 23 -12 74 -6 96 12 18 16 17
+74 -3 93 -20 20 -63 20 -92 0z"/>
+<path d="M12030 1174 c-14 -3 -44 -7 -67 -10 -39 -5 -43 -8 -43 -33 0 -24 5
+-30 30 -35 l30 -6 -2 -162 -3 -163 -27 -3 c-22 -3 -28 -9 -28 -28 l0 -24 115
+0 115 0 0 24 c0 19 -6 25 -27 28 l-28 3 -3 200 c-2 189 -7 220 -32 213 -3 0
+-16 -2 -30 -4z"/>
+<path d="M12285 1173 c-68 -9 -75 -12 -75 -42 0 -22 6 -30 25 -35 l25 -6 0
+-165 0 -165 -25 0 c-20 0 -25 -5 -25 -25 l0 -25 110 0 110 0 0 25 c0 20 -5 25
+-25 25 l-25 0 0 155 0 155 33 20 c42 26 89 26 113 -1 17 -19 19 -38 19 -173 0
+-149 0 -151 -22 -154 -17 -3 -23 -10 -23 -28 0 -24 0 -24 110 -24 110 0 110 0
+110 24 0 19 -6 25 -27 28 l-28 3 -3 155 -2 155 29 18 c46 27 97 23 118 -10 15
+-23 18 -50 18 -173 0 -143 0 -145 -22 -148 -17 -3 -23 -10 -23 -28 0 -24 0
+-24 110 -24 110 0 110 0 110 24 0 19 -6 25 -27 28 l-28 3 -5 165 c-4 110 -10
+174 -19 192 -32 63 -138 74 -229 23 -41 -23 -47 -24 -55 -9 -11 20 -68 44
+-104 44 -23 0 -72 -18 -160 -56 -7 -4 -13 6 -15 23 -3 30 -15 34 -73 26z"/>
+<path d="M13190 1169 c-51 -15 -97 -54 -122 -102 -34 -64 -32 -194 3 -262 30
+-59 82 -93 157 -102 55 -6 146 16 181 44 19 16 20 21 9 36 -12 17 -16 17 -50
+2 -86 -35 -162 -10 -192 65 -32 81 -34 80 118 80 l134 0 7 38 c7 44 -6 112
+-29 147 -33 51 -139 77 -216 54z m105 -64 c20 -19 25 -34 25 -75 l0 -50 -81 0
+-82 0 6 45 c8 52 23 80 52 94 33 16 54 12 80 -14z"/>
+</g>
+
+</g>
+</svg>
+</script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #ffffe7;
+  --blue: #52a9d4;
+  --orange: #fe4b72;
+  --green: #2eccb2;
+  --tan: #e6e3e2;
+  --dark_tan: #afa59e;
+  --dark_grey: #3b393a;
+  --dark_grey_trans: rgba(59, 57, 58, 0.8);
+  --trans: rgb(0,0,0,0);
+}
+
+body {
+  font-family: "Merriweather", "Times New Roman", serif;
+  background-color: var(--dark_grey);
+  margin: 0px;
+}
+
+#overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index:5;
+    background-color: var(--dark_grey_trans);
+}
+
+#popup {
+  background-color: var(--dark_grey);
+  height:80%;
+  width:80%;
+  color: white;
+  border-radius: 5px;
+  z-index: 10;
+
+  border-radius: 5px;
+  padding:0px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+#popup_footer {
+    width:100%;
+    height:8%;
+    margin:0px;
+    bottom:0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: var(--dark_grey);
+    border-radius: 0 0 5px 5px;
+    font-size: 120%;
+}
+
+#popup_content {
+    width: 100%;
+    height:92%;
+    border-radius: 5px 5px 0 0;
+}
+
+.popup {
+  visibility: hidden;
+}
+
+#header {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+#board {
+  height: 40%;
+}
+
+.entry {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 150%;
+}
+
+.entry_left,
+.entry_center,
+.entry_right {
+  text-align: center;
+}
+
+.entry_left,
+.entry_right {
+  width: 20%;
+  font-size: 75%;
+}
+
+.entry_center {
+  width: 40%;
+  font-size: 150%;
+  cursor: pointer;
+}
+
+#input {
+  background-color: var(--tan);
+  width: 80%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  box-shadow: inset 0.1em 0.1em 1em rgba(44, 44, 44, 0.605);
+  border-radius: 5px;
+}
+
+#guesses {
+  height: 70%;
+  overflow: scroll;
+}
+
+#guesses::-webkit-scrollbar {
+  display: none;
+}
+
+.blue_text {
+    color:var(--blue);
+}
+
+#info {
+  width: 80%;
+  height: 10%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info_item {
+  padding: 4px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+#par {
+  background-color: var(--blue);
+}
+
+#hints {
+  background-color: var(--orange);
+  display: none;
+}
+
+#share {
+    background-color: var(--green);
+    color: var(--dark_grey);
+    cursor: pointer;
+    display:none;
+}
+
+#thinking {
+    background-color: var(--orange);
+    display:none;
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 200%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--dark_tan);
+}
+
+#box_0 {
+  border-radius: 4px 0px 0px 4px;
+}
+
+#box_3 {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.box_border {
+  border-right: 0px solid var(--dark_grey);
+}
+
+.box_focus {
+  color: var(--dark_grey);
+  font-size: 240%;
+}
+
+.box_wrong {
+  color: rgb(204, 12, 12);
+}
+
+#keyboard {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: block;
+  width: 96%;
+  bottom: 0px;
+}
+
+#container {
+  background-color: var(--dark_grey);
+  color: white;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  border-radius: 5px;
+  /*        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
+}
+
+.row {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.option_row {
+    width:100%;
+    height:10%;
+    align-items: center;
+    display: flex;
+}
+
+.option_text {
+    width:92%;
+}
+
+.option_button {
+    width:8%;
+    border:2px solid var(--white);
+}
+
+.option_checked {
+    background-color: var(--green);
+}
+
+.key {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
+  font-size: 100%;
+  cursor: pointer;
+  margin: 2px;
+  border-radius: 5px;
+  color: var(--white);
+  background-color: var(--dark_grey);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 2px 5px 0 rgba(0, 0, 0, 0.19);
+}
+
+#key_refresh {
+     color: var(--green);
+     font-size: 120%;
+}
+
+#key_hint {
+     color: var(--orange);
+}
+
+
+.impossible_key {
+  color: var(--dark_grey);
+}
+
+@keyframes pulse_green {
+  0%, 100% {
+    fill: #fff;
+  }
+  50% {
+    fill: var(--green);
+  }
+}
+
+@keyframes pulse_to_color {
+  0% {
+    fill: #fff;
+  }
+  50% {
+    fill: var(--target-color);
+  }
+  100% {
+    fill: var(--target-color);
+  }
+}
+
+@keyframes all_green {
+  0% {
+    fill: #fff;
+  }
+  100% {
+    fill: var(--green);
+  }
+}
+
+@keyframes rainbow_sparkle {
+  0% { color: #52a9d4; }
+  14% { color: #2eccb2; }
+  28% { color: #fdde4e; }
+  42% { color: #f96; }
+  57% { color: #fe4b72; }
+  71% { color: #ff8eac; }
+  85% { color: #7f63ac; }
+  100% { color: #52a9d4; }
+}
+
+.pulse-word path {
+  animation: pulse_green 0.5s ease-in-out;
+}
+
+.pulse-to-color path {
+  animation: pulse_to_color 0.5s ease-in-out forwards;
+}
+
+.all-green path {
+  animation: all_green 0.3s ease-in-out forwards;
+}
+
+.rainbow-sparkle {
+  animation: rainbow_sparkle 3.5s ease-in-out infinite;
+  animation-delay: 2.4s;
+  font-weight: bold;
+  color: #52a9d4;
+}
+
+
+    </style>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        //Word list - this is terrible for now, but will fix. Get mechanism working first.
+        const word_list = ["sped", "puce", "purl", "lurk","gunk","sate","peal","bawl","flub","flan", "teat", "that", "this", "with", "from", "your", "have", "more", "will", "home", "page", "free", "time", "they", "site", "what", "news", "only", "when", "here", "also", "help", "view", "been", "were", "some", "like", "than", "find", "date", "back", "list", "name", "just", "over", "year", "into", "next", "used", "work", "last", "most", "data", "make", "them", "post", "city", "such", "best", "then", "good", "well", "info", "high", "each", "very", "book", "read", "need", "many", "user", "said", "does", "mail", "full", "life", "know", "part", "real", "item", "must", "made", "line", "send", "type", "take", "area", "want", "long", "code", "show", "even", "much", "sign", "file", "link", "open", "case", "same", "both", "game", "care", "down", "size", "shop", "text", "rate", "form", "love", "john", "main", "call", "save", "card", "food", "sale", "teen", "room", "join", "look", "left", "team", "week", "note", "live", "plan", "cost", "test", "come", "cart", "play", "less", "blog", "park", "side", "give", "sell", "body", "east", "club", "road", "gift", "hard", "four", "blue", "easy", "star", "hand", "keep", "porn", "baby", "term", "film", "head", "cell", "self", "away", "once", "sure", "tell", "able", "gold", "past", "five", "upon", "land", "done", "ever", "word", "bill", "talk", "nude", "else", "mark", "rock", "plus", "auto", "edit", "fast", "fact", "unit", "tech", "meet", "feel", "bank", "risk", "town", "girl", "golf", "loan", "wide", "sort", "half", "step", "none", "lake", "fire", "chat", "loss", "face", "base", "near", "stay", "turn", "mean", "king", "copy", "drug", "cash", "seen", "port", "stop", "soon", "held", "mind", "lost", "tour", "menu", "hope", "wish", "role", "came", "fine", "hour", "bush", "huge", "kind", "move", "logo", "nice", "sent", "band", "lead", "went", "mode", "fund", "male", "took", "song", "late", "fall", "idea", "tool", "hill", "deal", "hold", "safe", "feed", "hall", "ship", "paid", "hair", "anal", "tree", "thus", "wall", "wine", "vote", "rule", "told", "feet", "sexy", "door", "cool", "java", "pass", "skin", "ring", "deep", "rest", "pool", "mini", "fish", "pack", "born", "race", "debt", "core", "wood", "rent", "dark", "host", "fair", "ohio", "dead", "mike", "trip", "poor", "farm", "lord", "hear", "goes", "wife", "zone", "jack", "flat", "flow", "path", "skip", "diet", "army", "gear", "firm", "jump", "ball", "goal", "sold", "wind", "palm", "pain", "oral", "ford", "edge", "root", "pink", "shot", "cold", "foot", "mass", "heat", "wild", "miss", "task", "soft", "fuel", "walk", "wait", "rose", "pick", "load", "cock", "drop", "rich", "seem", "hire", "gave", "rank", "inch", "snow", "camp", "fill", "gone", "fort", "gene", "disc", "boat", "icon", "cast", "felt", "soul", "flag", "atom", "iron", "void", "disk", "desk", "hong", "vice", "duty", "bear", "gain", "lack", "iowa", "knew", "zoom", "blow", "clip", "wire", "tape", "spam", "acid", "cent", "null", "zero", "roll", "bath", "font", "beta", "fail", "jazz", "wear", "rare", "dual", "rise", "bird", "lady", "dell", "toll", "cape", "mine", "whom", "math", "moon", "fear", "kept", "beat", "hide", "slow", "nine", "spot", "grow", "rain", "onto", "bass", "hole", "ride", "pair", "yeah", "evil", "peak", "dick", "salt", "bell", "lane", "kill", "plug", "cook", "bike", "lose", "seek", "tony", "soil", "exit", "wave", "holy", "mesh", "dean", "poll", "bond", "visa", "pure", "hell", "lens", "draw", "warm", "suck", "babe", "crew", "rear", "node", "lock", "mile", "bowl", "tank", "navy", "dish", "slot", "gray", "demo", "hate", "rice", "loop",  "vary", "mown", "milk", "boot", "push", "dear", "beer", "earn", "twin", "suit", "chip", "char", "echo", "grid", "voip", "pull", "nick", "plot", "pump", "exam", "grey", "bold", "scan", "aged", "bulk",  "cute", "para", "seed", "peer", "meat", "bang", "bone", "gate", "tone", "busy", "neck", "wing", "tiny", "rail", "tube", "belt", "luck", "dial", "gang", "cake", "semi", "cafe", "till", "shoe", "sand", "seal", "pipe", "deck", "thin", "sick", "dose",  "folk", "okay", "lift",  "mall", "fell", "yard", "pour", "dust", "wiki", "butt", "ward", "roof", "kiss", "rush", "yoga", "lamp", "phil", "glad", "rack", "boss", "solo", "tall", "nova", "wake", "drum", "ease", "orgy", "pine", "tend", "gulf", "hunt", "mill", "burn", "sole", "laid", "clay", "weak", "wise", "leaf", "silk", "wolf", "kick", "meal", "hurt", "slip", "pill", "meta", "mint", "spin", "wash", "soap", "axis",  "hero", "punk", "duke", "pace", "wage", "dawn", "coat", "doll", "reed", "mice", "temp", "vast", "wrap", "mood", "quiz", "beam", "shut", "thou", "mask", "coal", "lion", "beef", "surf", "hook", "cord", "crop", "lite", "sing", "hang", "damn", "hood", "fame", "ruby", "stem", "drew", "tune", "corn", "grew", "trek", "brad", "jury", "tail", "lawn", "soup", "byte", "nose", "trim", "quit", "lung", "bull", "mart", "tale", "coin", "fake", "cure", "arch", "bomb", "harm", "deer", "oven", "noon", "piss", "mate", "chef", "isle", "slim", "luke", "comp", "spec", "dale", "boob", "unto", "stud", "fold", "pole", "bend", "glen", "pond", "tire", "chad", "josh", "drag", "ripe", "rely", "nail", "span", "joke", "foam", "poem", "bean", "bias", "swim", "nano", "loud", "stat", "thee", "ruth", "pray", "pope", "jeep", "bare", "hung", "mono", "tile", "ciao", "knee", "prep", "chem", "cant", "duck", "dive", "raid", "volt", "dirt", "geek", "sink", "grip", "watt", "polo", "horn", "frog", "snap", "swap", "flip", "buzz", "nuke", "boom", "calm", "fork", "tray", "sage", "cave", "wool", "grab", "trap", "fool", "jail", "lace", "ugly", "hart", "fist", "mere", "taxi", "worn", "expo", "deny", "trio", "cube", "fate", "oval", "tier", "earl", "cite", "mess", "rope", "dump", "hose", "mild", "clan", "sync", "mesa", "hull", "shed", "memo", "tide", "funk", "reel", "bind", "buck", "acre", "aqua", "pest", "reef", "sofa", "tent",  "hack", "dare", "hawk", "lamb", "junk", "poet", "epic", "lean", "dude", "alto", "gore", "cult", "dash", "cage", "ping", "flux", "rage", "acne",  "undo", "halo", "exec", "doom", "bite", "myth", "weed", "dice", "quad", "dock", "hint", "pork", "barn", "fare", "bald", "mold", "dame", "herb", "alot", "idle", "cove", "eden", "flex", "hash", "lazy", "carb", "worm", "deaf", "blah", "mime", "keen", "zinc", "guru", "levy", "grad", "pale", "tear", "nest", "gale", "stan", "idol", "moss", "cork", "mali", "dome", "heel", "yang", "dumb", "feat", "glow", "norm", "ware", "jade", "foul", "keno", "pose", "goat", "sail", "sega", "cdna", "bolt", "gage", "urge", "neon", "ours", "lone", "cope", "lime", "yarn", "knit", "pike", "bent", "mama", "coil", "lily", "joey", "tilt", "bead", "leak", "bulb", "iris", "stir", "pile", "wade", "pony", "leap", "swan", "scat", "bash", "neat", "bump", "aunt", "crow", "gram", "bust", "cola", "foil", "pogo", "tick", "glue", "cone", "ramp", "pear", "clue", "duff", "scam", "beck", "tome", "hath", "prop", "maid", "fest", "deed", "papa", "warn", "vent", "vase", "pier", "saga", "mayo", "lisp", "chin", "wont", "soda", "tomb", "prom", "pulp", "slam", "crib", "coca", "noun", "crab", "hike", "bore", "peel", "bake", "fave", "heal", "tote", "sour", "sock", "bail", "mist", "verb", "chic", "vest", "puma", "rant", "gill", "rude", "sang", "curl", "deli", "vine", "vale", "limo", "rust", "avid", "fade", "monk", "torn", "heck", "bark", "lynx", "odor", "flew", "apex", "curb", "deco", "coke", "cane", "fury", "wore", "plea", "prey", "lick", "whip", "bout", "fond", "sore", "fiat", "noel", "aide", "lieu", "knob", "dove", "sung", "ally", "holt", "dull", "sigh", "mock", "melt", "faux", "pant", "hype", "turf", "berg", "muse", "lust", "lien", "vein", "hale", "tiff", "bait", "dent", "lame", "fuse", "amid", "knot", "coop", "plum", "loft", "lump", "halt", "bury", "waft", "duct", "lend", "gown", "ruin", "tuna", "wipe", "haul", "duly", "obey", "mare", "kite", "heap", "flea", "hail", "herd", "calf", "rave", "jerk", "situ", "flap", "diva", "oath", "gala", "tang", "riot", "lush", "grim", "flop", "toss", "pity", "woke", "cuff", "eddy", "colt", "hunk", "chap", "harp", "tack", "sack", "peek", "suet", "axle", "opal", "toon", "blew", "lava", "envy", "shah", "stag", "rash", "boil", "vain", "maze", "rode", "amen", "warp", "brew", "kern", "coup", "fore", "limb", "limp", "mute", "dart", "robe", "mast", "goth", "cozy", "comb", "alas", "arte", "chop", "onyx", "hoop", "nope", "dire", "gull", "shin", "flaw", "pane", "vibe", "anon", "barb", "aura", "sect", "mole", "buff", "clad", "fled", "pimp", "hemp", "wink", "fife", "stub", "tort", "afro", "zine", "spur", "pact", "lulu", "ibis", "coed", "mule", "kiwi", "duel", "mead", "gong", "gaze", "hulk", "cyan", "haze", "tuck", "slab", "lure", "hers", "grin", "spit", "acme", "rove", "chow", "aria", "scar", "dorm", "dine", "slap", "ante", "bred", "tout", "hare", "veil", "peck", "helm", "chew", "teak", "sane", "dune", "mana", "lest", "blur", "punt", "mojo", "dime", "carp", "dusk", "lent", "aloe", "puff", "claw", "wand", "taco", "weld", "writ", "typo", "damp", "fern", "lore", "arid", "jive", "spun", "balm", "upto", "chit", "drip", "pint", "liar", "opus", "mage", "teal", "bard", "reap", "hast", "tidy", "beau", "rang", "soar", "flee", "stew", "hush", "akin", "soak", "hymn", "quay", "dram", "burr", "slug", "yell", "rake", "bunk", "stab", "seam", "omit", "darn", "lyme", "ammo", "veto", "clam", "nerd", "axel", "sire", "ding", "coma", "thug", "sham", "loaf", "skid", "poop", "whey", "curt", "moth", "mash", "germ", "atop", "puck", "moor", "lube", "sway", "toad", "eros", "malt", "clap", "poke", "dope", "kiln", "jock", "wasp", "fuss", "swat", "anus", "sine", "bray", "roar", "gall", "meme", "slit", "beep", "slid", "raft", "brow", "fink", "deem", "flax", "tart", "tram", "bile", "heir", "loom", "grub", "slew", "duet", "muck", "hoax", "wary", "riff", "mace", "pore", "oily", "whoa", "grit", "tame", "wilt", "emit", "rink", "numb", "pave", "airy", "hobo", "dole", "wick", "peat", "tofu", "sunk", "perm", "lair", "lacy", "wren", "heed", "boon", "pawn", "tore", "dunk", "snip", "diss", "mutt", "ouch", "womb", "daft", "sled", "elan", "coax", "alum", "doth", "plow", "smut", "dang", "blot", "imam", "sewn", "rift", "peep", "luxe", "oboe", "lobe", "gosh", "zeal", "bong", "gent", "hind", "ache", "yoke", "loot", "tint", "silt", "lint", "blob", "roam", "stun", "fang", "weep", "moan", "sank", "bale", "smog", "keel", "fart", "seer", "vial", "huff", "gust", "musk", "lice", "skim", "rune", "welt", "veal", "posh", "mink", "itch", "dill", "moot", "rein", "buoy", "hive", "newt", "dung", "lark", "ruff", "scum", "bran", "fret", "glib", "vile", "brio", "loci", "hula", "foxy", "putt", "cram", "fray", "sash", "boar", "mite", "spar", "brat", "anew", "loon", "hone", "wort", "tuba", "jest", "jolt", "skew", "cyst", "fowl", "pate", "snug", "orca", "nook", "rosy", "howl", "ogre", "yogi", "dojo", "gait", "meek", "stow", "hump", "glam", "beet", "geld", "meow", "lash", "omen", "brig", "coda", "defy", "whit", "clog", "yeti", "sill", "frat", "lain", "furl", "afar", "fawn", "etch", "flue", "emir", "gout", "bane", "thaw", "shun", "daze", "trot", "woof", "wham", "barm", "mull", "bode", "kilo", "slay", "chia", "dork", "sari", "mitt", "yawn", "feud", "gist", "tact", "rife", "tern", "jute", "prim", "pang", "swag", "whim", "nigh", "sump", "zest", "huey", "wisp", "sift", "ooze", "fume", "brag", "muff", "snag", "yank", "shag", "spat", "ahem", "shad", "wavy", "crux", "slag", "skit", "kelp", "vamp", "iota", "bled", "pita", "slum", "fuzz", "toil", "garb", "wept", "edgy", "rook", "pall", "moat", "swam", "hazy", "hoof", "frag", "vise", "lute", "pram", "luau", "brim", "chum", "glut", "soot", "whiz", "roux", "vane", "mane", "kink", "rhea", "beak", "rung", "loam", "romp", "czar", "mush", "foal", "gogo", "cred", "noob", "whew", "pail", "loin", "leer", "nave", "leek", "puss", "clot", "morn", "sass", "rout", "ploy", "puke", "glee", "hoot", "kale", "huck", "juke", "jinx", "aver", "milt", "dike", "wart", "gush", "ogle", "hiss", "gory", "bony", "moll", "cask", "brie", "oxen", "fend", "veer", "shim", "gnat", "amok", "arty", "smug", "yule", "pert", "tsar", "burp", "cusp", "bade", "yolk", "cull", "maul", "ahoy", "gyro", "luge", "heme", "sear", "axon", "tarp", "puny",  "foci", "drab", "flak", "yuck", "lard", "swab", "rind", "burl", "ruse", "muss", "spud", "feta", "onus", "lull", "taro", "biff", "mote", "hark", "thud", "perk", "mosh", "pent", "gawk", "hock", "heft", "lewd", "dupe", "racy", "awry", "lode", "spay", "toke", "masa", "clef", "pelt", "goof", "dank", "zany", "hilt", "roan", "wily", "puja", "dodo", "talc", "pomp", "spew", "gulp", "toot", "snot", "hurl", "nary", "ibex", "phew", "wail", "oust", "bask", "vlog", "bolo", "poof", "boba", "pled", "slaw", "yoyo", "whig", "meld", "lyre", "deft", "husk", "honk", "turd", "pout", "balk", "idly", "mien", "blip", "icky", "wimp", "whet", "raga", "ecru", "juju", "dink", "pupa", "okra", "snub","lout","crag","dint","miff", "coot","rite","snit","rime","seep","rump","prow","slat","twig","craw","seat", "pare","rile", "molt","silo","weal","clod","boor","pone","conk",'rape',"slut", "dyke","barf","plod","goad","runt","rote","cowl","roil","teem","wane","slog","boll","west","sulk","koan","rabe","tamp","tine","rube","zonk","tare","hoar","crap","prod","prig","goop","wiry","loge","prig","pock","ream","bree","slop", "raze", "pend","kine","taut","wile","pyre","espy","apse","dais","byre","ewer","lank","bier","laud","wend","rend","alms","erne","dray","shiv","razz","naan","yuzu","cede","dote","fete","gaff","glum","jeer","reek","dour","peon","rapt","abut","avow","gibe"];
+        const sensitive = ['porn','rape',"slut","dyke","barf","orgy","piss","turd","boob","crap","poop"];
+    
+        const alpha = 'abcdefghijklmnopqrstuvwxyz'.split('');
+        const qwerty = ['qwertyuiop','asdfghjkl','?zxcvbnm\u21BB'];
+        const breakpoint = 50;
+        
+
+        //Global variables
+        var guesses = [];
+        var solution = [];
+        var hints = 0;
+        var selected = "";
+        var par = 0;
+        var foc = "";
+
+        //Settings
+        var settings = {
+            "show_par":1,
+            "check_letters":0,
+            "perfect_fours":0,
+            "par_seven_plus":0
+        }
+
+        // Load settings from localStorage
+        for (const key in settings) {
+            const savedValue = localStorage.getItem(key);
+            if (savedValue !== null) {
+                settings[key] = parseInt(savedValue);
+            }
+        }
+
+
+function share(){
+    var given = solution[0];
+    var target = solution[solution.length-1];
+    var moves = guesses.length - 1;
+    var hints_str = (hints > 0 ? `and ${hints} hint`+(hints > 1 ? "s" : ""): "");
+
+    var text = `one \u00B7 at \u00B7 a \u00B7 time \n
+solved in ${moves} moves ${hints_str}\n
+https://squaresga.me/oneatatime/play.html?given=${given}&target=${target}`;
+    
+    navigator.share({
+      //title: 'one at a time',
+      text: text,
+    })
+}
+
+        
+        //Find and check variants
+        function variant(word) {
+            var results = [];
+            word_array = word.split('');
+            for (var j = 0; j < word.length; j++) {
+                for (var i = 0; i < alpha.length; i++) {
+                    var test = word_array.slice();
+                    test[j] = alpha[i];
+                    test_word = test.join('');
+                    if (word_list.includes(test_word) && test_word != word) {
+                        results.push(test_word);
+                    }
+                }
+            }
+            return results;
+        }
+
+        function cycle(running, target_word, avoid = []) {
+            //Set length
+            var stop = running.length;
+            //Find the elements of running that haven't been updated and execute on them
+            for (var b = 0; b < stop; b++) {
+                if (running[b][2] == 0) {
+                    //Find variants
+                    var variants = variant(running[b][0]);
+                    //Create simple running list of words
+                    var simple_running = [];
+                    for (var x = 0; x < running.length; x++) {
+                        simple_running.push(running[x][0]);
+                    }
+                    //Update running list
+                    for (var c = 0; c < variants.length; c++) {
+                        if (!(simple_running.includes(variants[c])) && (!(avoid.includes(variants[c])))) {
+                            running.push([variants[c], b, 0]);
+                        }
+                        if (variants[c] == target_word) {
+                            return [1, running, running.length - 1]
+                        }
+                    }
+                    //Set index for initial cycle forward
+                    running[b][2] = 1;
+                }
+            }
+            return [0, running];
+        }
+        // /function solve_cycle()
+        function trace_chain(list, index) {
+            var chain = [index];
+            var breaker = 0;
+            while (breaker == 0) {
+                var next = list[chain[chain.length - 1]][1];
+                chain.push(next);
+                breaker = (next == 0 ? 1 : 0);
+            }
+            return chain;
+        }
+
+        function solve(given_word, target_word, avoid = [], max_par = null) {
+            //Drop if either given or target word is in the avoided set
+            if (avoid.includes(given_word) || avoid.includes(target_word)) {return}
+
+            var initial = [given_word, 0, 0];
+            var master = [];
+            master.push(initial);
+            var solved = 0;
+            var solution_index = -1;
+            var path = [];
+            var next_rev;
+            var cycles = 0;
+            //Cycle until solved
+            while (solved < 1) {
+                next_rev = cycle(master, target_word, avoid);
+                master.concat(next_rev[1]);
+                solved = next_rev[0];
+                cycles++;
+
+                // Early abort if we've exceeded max_par
+                if (max_par !== null && cycles > max_par) {
+                    return "-1";
+                }
+
+                if (cycles > breakpoint) {
+                    return "-1";
+                }
+            }
+            var chain = trace_chain(master, next_rev[2]);
+            chain.reverse();
+            for (var z = 0; z < chain.length; z++) {
+                path.push(master[chain[z]][0]);
+            }
+            return path;
+        }
+
+        function all_letters_different(word1, word2) {
+            // Check if all 4 letters are different between two words
+            for (var i = 0; i < 4; i++) {
+                if (word1[i] === word2[i]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function generate_game(list) {
+            // Set solution as -1 so we loop until we find one that work. A solveable set will break from loop
+            var sol = -1;
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Check if URL params are present - they take priority over filter settings
+            const hasUrlParams = urlParams.get('given') && urlParams.get('target');
+
+            while (sol == -1) {
+             //Grab parameters from URL if there, otherwise randomly generate
+                if (hasUrlParams) {
+                    // Use URL params - ignore filter settings for shared puzzles
+                    given = urlParams.get('given');
+                    target = urlParams.get('target');
+                } else {
+                    // Generate random words
+                    given = list[Math.floor(Math.random() * list.length)];
+                    target = list[Math.floor(Math.random() * list.length)];
+
+                    // Pre-filter for perfect_fours: check if all letters are different BEFORE solving
+                    if (settings['perfect_fours'] == 1 && !all_letters_different(given, target)) {
+                        continue; // Skip this pair without solving
+                    }
+                }
+
+                // Determine max_par for early abort (only for filtered puzzles)
+                const maxPar = (!hasUrlParams && settings['perfect_fours'] == 1) ? 4 : null;
+
+                //Solve game with early abort if needed
+                sol = solve(given, target, sensitive, maxPar);
+
+                // Check filter criteria only if NOT using URL params
+                if (sol != -1 && !hasUrlParams) {
+                    const par = sol.length - 1;
+
+                    // If perfect_fours is enabled, check if par is exactly 4
+                    if (settings['perfect_fours'] == 1) {
+                        if (par !== 4) {
+                            sol = -1;
+                        }
+                    }
+
+                    // If par_seven_plus is enabled, check if par >= 7
+                    if (settings['par_seven_plus'] == 1) {
+                        if (par < 7) {
+                            sol = -1;
+                        }
+                    }
+                }
+            }
+            //Remove url
+            history.pushState({page: 1}, "title 1", "?");
+            return sol;
+        }
+
+
+    //Board construction
+
+    function sizing() {
+    //Get window dimensions
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    if (width > 1200) {
+        container_width = 540;
+        container_offset = (width - 540) / 2;
+    }
+    else if (width <= 1200) {
+        if (0.6 * height >= 0.9 * width) {
+            container_width = 1 * width;
+        }
+        else {
+            container_width = 0.6 * height;
+        }
+        container_offset = (width - container_width) / 2;
+    }
+    //size and place the container
+    $('#container').css({
+        'top':'0%',
+        'bottom':"0%",
+        'left': container_offset,
+        'width': container_width,
+        //'top':0.05 * height
+    });
+
+//Popup
+popup_padding = .02 * height;
+popup_width = 0.8 * container_width - (2 * popup_padding);
+
+$('#popup').css({
+        'padding':popup_padding,
+        'width': popup_width,
+    });
+
+    //Header
+
+
+    //input boxes
+    $('#input, #info').css({
+        'left':container_width*.1
+    });
+
+    //Get height of input boxes
+    var box_height = $('.box').height();
+    var info_top = box_height * .75;
+    var input_top = box_height * 0.5;
+
+    $('#input').css({
+        top:input_top
+    });
+
+    $('#info').css({
+        top:info_top
+    });
+
+    //Keyboard
+    $('#keyboard').css({
+        bottom:'2%',
+        left:'2%'
+    });
+
+    var key_dimension = container_width *0.1;
+    $('.key').css({
+        width:key_dimension,
+        height:key_dimension
+    });
+
+    size_options();
+
+}
+
+function size_options() {
+        $('.option_button').height($('.option_button').width());
+    }
+
+
+function make_keyboard() {
+        var str = "";
+        qwerty.forEach(function(key_row) {
+            key_row_arr = key_row.split('');
+            str += "<div class='row'>";
+            key_row_arr.forEach(function(key) {
+                key_str = key;
+                if (key == "?") {
+                    key = "hint";
+                }
+                else if (key == "\u21BB") {                    key_str = key;
+                    key = "refresh";
+                }
+                str += "<div id='key_" + key + "' key=" + key + " class='key'>" + key_str + "</div>"
+            });
+            str += "</div>";
+        });
+        return str;
+    }
+
+    function make_entry(id,number,word,highlight=false){
+        var par_indicator = (number > window.par ? "+"+(number-window.par)  : "");
+        //Highlight letter if appropriate
+        if (highlight) {
+
+            word = highlight_letter(guesses[guesses.length-2], word);
+        }
+
+        var str = "";
+        str += "<div class='row entry' guess='"+id+"' id='entry_"+id+"'>";
+        str += "<div class='entry_left'  id='entry_left_"+id+"'>"+number+"</div>";
+        str += "<div class='entry_center' id='entry_center_"+id+"'>"+word+"</div>";
+        str += "<div class='entry_right' "+(settings['show_par'] == 1 ? "" : "style='visibility:hidden'   ")+" id='entry_right_"+id+"'>"+par_indicator+"</div>";
+        str += "</div>";
+        return str;
+    }
+
+    function highlight_letter(word1,word2) {
+        word1_arr = word1.split('');
+        word2_arr = word2.split('');
+        for (var i=0;i<word1_arr.length;i++) {
+            if (word2_arr[i] != word1_arr[i]) {
+                word2_arr[i] = "<span class='blue_text'>"+word2_arr[i]+"</span>";
+            }
+        }
+        word2 = word2_arr.join('');
+        return word2;
+    }
+
+    function update_input(word) {
+        word_arr = word.split('');
+        for (var i = 0;i<4;i++) {
+            $('#box_'+i).html(word[i]); 
+        }
+    }
+
+    function add_guess(word) {
+        guesses.push(word);
+        if (word == solution[solution.length-1]) {
+            var par_indicator = (guesses.length-1 > window.par ? "+"+((guesses.length-1)-window.par)  : "perfect!");
+            $('#entry_center_finish').html(highlight_letter(guesses[guesses.length-2],guesses[guesses.length-1]));
+
+            // Add rainbow sparkle to "perfect!" if it's truly perfect (at par with no hints)
+            if (guesses.length-1 === window.par && window.hints === 0) {
+                $('#entry_right_finish').html('<span class="rainbow-sparkle">' + par_indicator + '</span>');
+            } else {
+                $('#entry_right_finish').html(par_indicator);
+            }
+
+            $('#key_hint').css('visibility','hidden');
+            $('#share').show();
+            celebrate_win();
+        }
+        else {
+        $('#guesses').append(make_entry(guesses.length-1,guesses.length-1,word,true));
+
+//Scroll to right position
+        $('#guesses').animate({scrollTop: ($('.entry').height() + 20) * guesses.length - $('#guesses').height() })
+        }
+//Check letters if needed
+        if (settings['check_letters'] == 1) {
+                check_letters(guesses[guesses.length - 1],window.foc);
+            }
+    }
+
+    function wind_back(guess) {
+        if(guesses.length < 2) {return}
+        guess = parseInt(guess);
+        //Clear entries
+        for (var i=0;i<guesses.length;i++) {
+            if (i > guess) {
+                $('#entry_'+i).remove();
+            }
+        }
+        //Delete guesses
+        guesses = guesses.slice(0,guess+1)
+        //Clear final par indicator
+        $('#entry_right_finish').html('');
+
+        //Take highlighting out of final
+        $('#entry_center_finish').html(solution[solution.length-1]);
+    
+        //Update input field
+        update_input(guesses[guess]);
+
+        //Animate to right height
+        $('#guesses').animate({scrollTop: ($('.entry').height() + 20) * guesses.length - $('#guesses').height() })
+
+        //Hide share button
+        $('#share').hide();
+
+        //Bring back hint button
+        $('#key_hint').css('visibility','visible');
+
+        //Referesh checked letters
+        if (settings['check_letters'] == 1) {
+                check_letters(guesses[guesses.length - 1],window.foc);
+            }
+    }
+    
+    function check_letters(word, position) {
+        const word_arr = word.split('');
+        for (var x=0;x<alpha.length;x++) {
+            var test_arr = word_arr.slice();
+            test_arr[position] = alpha[x];
+            if (word_list.includes(test_arr.join('')) && word_arr[position] != alpha[x]) {
+                $('#key_'+alpha[x]).removeClass('impossible_key');
+            }
+            else {
+                $('#key_'+alpha[x]).addClass('impossible_key');   
+            }
+        }
+    }
+
+function new_game() {
+            // Check if we need to show thinking indicator
+            const isFiltered = settings['perfect_fours'] == 1 || settings['par_seven_plus'] == 1;
+
+            if (isFiltered) {
+                // Show thinking indicator
+                $('#thinking').show();
+                $('#par').hide();
+
+                // Use setTimeout to let UI update before blocking generation
+                setTimeout(() => {
+                    generate_and_setup_game();
+                }, 10);
+            } else {
+                // No filter, generate immediately
+                generate_and_setup_game();
+            }
+}
+
+function generate_and_setup_game() {
+            //Generate game
+            solution = generate_game(word_list);
+
+        //Reset and load guesses
+            guesses = [];
+            guesses.push(solution[0]);
+
+        $('#guesses').html(make_entry(0,'start',solution[0]));
+        $('#final').html(make_entry('finish','finish',solution[solution.length-1]));
+        update_input(solution[0]);
+        window.par = solution.length - 1;
+        $('#par').html("par "+window.par);
+
+        //Hide thinking indicator and show par
+        $('#thinking').hide();
+        if (settings['show_par'] == 1) {
+            $('#par').show();
+        }
+
+        //Hide share button
+        $('#share').hide();
+
+        //Reset hints
+        hints = 0;
+        $('#hints').hide();
+        $('#key_hint').css('visibility','visible');
+
+        //Clear win animation classes and reset colors
+        $('#header .word-one, #header .word-at, #header .word-a, #header .word-time').removeClass('all-green pulse-word pulse-to-color');
+        $('#header path').css('fill', ''); // Clear any inline color styles
+}
+
+function celebrate_win() {
+    // Pulse sequence: one. at. a. time.
+    const words = ['.word-one', '.word-at', '.word-a', '.word-time'];
+    const timings = [0, 600, 1200, 1800]; // milliseconds for each word
+
+    const noHints = window.hints === 0;
+
+    // Rainbow celebration for all no-hints games
+    if (noHints) {
+        const colors = ['#52a9d4', '#2eccb2', '#fdde4e', '#f96', '#fe4b72', '#ff8eac', '#7f63ac'];
+        const shuffledColors = colors.sort(() => Math.random() - 0.5);
+
+        // Pulse each word to its assigned color
+        words.forEach((wordClass, index) => {
+            setTimeout(() => {
+                // Set the target color as a CSS variable
+                $('#header ' + wordClass).css('--target-color', shuffledColors[index]);
+                $('#header ' + wordClass).addClass('pulse-to-color');
+            }, timings[index]);
+        });
+    } else {
+        // Regular green animation (used hints)
+        words.forEach((wordClass, index) => {
+            setTimeout(() => {
+                $('#header ' + wordClass).addClass('pulse-word');
+                setTimeout(() => {
+                    $('#header ' + wordClass).removeClass('pulse-word');
+                }, 500);
+            }, timings[index]);
+        });
+
+        setTimeout(() => {
+            words.forEach(wordClass => {
+                $('#header ' + wordClass).addClass('all-green');
+            });
+        }, 2400);
+    }
+}
+
+function hint(solution,guesses) {
+var target = solution[solution.length-1];
+var given = guesses[guesses.length-1];
+
+//Drop if target already reached
+if (given == target) {return}
+
+//Calculate hint
+var hint = solve(given,target,sensitive)[1];
+
+//Update board and guess counter
+update_input(hint);
+add_guess(hint);
+
+//add to hint tally
+window.hints++;
+$('#hints').html(window.hints + ' hint' + (window.hints > 1 ? "s" : ""));
+$('#hints').show();
+
+}
+
+
+function toggle_settings(item){
+        var option = $(item).attr('option');
+        //Update setting
+        settings[option] = [1,0][settings[option]];
+
+        // Handle mutual exclusivity for puzzle filters
+        if (settings[option] == 1) {
+            if (option === 'perfect_fours' && settings['par_seven_plus'] == 1) {
+                settings['par_seven_plus'] = 0;
+                $('#option_button_par_seven_plus').removeClass('option_checked');
+                localStorage.setItem('par_seven_plus', 0);
+            }
+            if (option === 'par_seven_plus' && settings['perfect_fours'] == 1) {
+                settings['perfect_fours'] = 0;
+                $('#option_button_perfect_fours').removeClass('option_checked');
+                localStorage.setItem('perfect_fours', 0);
+            }
+        }
+
+        //Toggle settings checkbox
+        if(settings[option] == 0) {
+            $(item).removeClass('option_checked');
+
+            //Specific actions
+            switch (option) {
+                case 'show_par':
+                    $('.entry_right').css('visibility','hidden');
+                    $('#par').hide();
+                    break;
+                case 'check_letters':
+                    $('.key').removeClass('impossible_key');
+                    break;
+            }
+        }
+        else {
+            $(item).addClass('option_checked');
+
+            //Specific actions
+            switch (option) {
+                case 'show_par':
+                    $('.entry_right').css('visibility','visible');
+                    $('#par').show();
+                    break;
+                case 'check_letters':
+                    check_letters(guesses[guesses.length - 1], window.foc);
+                    break;
+            }
+        }
+
+        //Update local storage
+        localStorage.setItem(option,settings[option]);
+    }
+
+function instructions_menu() {
+    var str = `
+        <div style='padding:20px; padding-bottom:40px; overflow:scroll; height:100%; font-size:90%; box-sizing:border-box;'>
+            <h2 style='margin-top:0; color:var(--blue);'>how to play</h2>
+
+            <p>transform one word into another by changing <b>one letter at a time</b>. each step must be a real word!</p>
+
+            <h3 style='color:var(--orange);'>example time!</h3>
+            <p>let's turn <b>WARM</b> into <b>COLD</b>:</p>
+
+            <div style='background-color:var(--dark_grey_trans); padding:15px; border-radius:5px; margin:10px 0;'>
+                <div style='margin:8px 0;'>start → <span style='color:var(--white); font-size:110%;'>WARM</span></div>
+                <div style='margin:8px 0;'>move 1 → W<span style='color:var(--blue);'>O</span>RM <span style='font-size:80%;'>(changed A to O)</span></div>
+                <div style='margin:8px 0;'>move 2 → <span style='color:var(--blue);'>F</span>ORM <span style='font-size:80%;'>(changed W to F)</span></div>
+                <div style='margin:8px 0;'>move 3 → FOR<span style='color:var(--blue);'>D</span> <span style='font-size:80%;'>(changed M to D)</span></div>
+                <div style='margin:8px 0;'>move 4 → <span style='color:var(--blue);'>C</span>ORD <span style='font-size:80%;'>(changed F to C)</span></div>
+                <div style='margin:8px 0;'>finish → COL<span style='color:var(--blue);'>D</span> <span style='font-size:80%;'>(changed R to L)</span></div>
+                <div style='margin-top:12px; color:var(--green);'>✓ solved in 5 moves!</div>
+            </div>
+
+            <h3 style='color:var(--green);'>the basics</h3>
+            <ul style='line-height:1.6;'>
+                <li><b>click a box</b> (or press 1-4) to select which letter to change</li>
+                <li><b>type a letter</b> to make your move</li>
+                <li><b>par</b> shows the shortest path</li>
+                <li><b>click any guess</b> to rewind and try a different path - or, click the starting word to start over</li>
+            </ul>
+
+            <h3 style='color:var(--orange);'>pro tips</h3>
+            <ul style='line-height:1.6;'>
+                <li><b>?</b> button gives you a hint (but we count these!)</li>
+                <li><b>refresh button</b> starts a fresh puzzle</li>
+                <li>press <b>backspace</b> to undo your last move</li>
+                <li>press <b>escape</b> to restart from the beginning</li>
+                <li>turn on <b>"filter letters"</b> to see which letters are possible</li>
+            </ul>
+
+            <p style='margin-top:20px; color:var(--tan);'>now get out there and start transforming!</p>
+        </div>
+    `;
+
+    $('#popup_content').html(str);
+    $('.popup').css('visibility','visible');
+}
+
+function settings_menu() {
+    //Create menu content
+    var str = "";
+
+    var options=[
+        {'label':'show_par',
+        'text':'show par',
+        'status':settings['show_par']
+        },
+        {'label':'check_letters',
+        'text':'filter letters',
+        'status':settings['check_letters']
+        },
+        {'label':'perfect_fours',
+        'text':'perfect 4s only',
+        'status':settings['perfect_fours']
+        },
+        {'label':'par_seven_plus',
+        'text':'par 7+ only',
+        'status':settings['par_seven_plus']
+        },
+    ];
+
+    for (var x=0;x<options.length;x++){
+        var checked = (options[x].status == 1 ? "option_checked" : "");
+        option = `<div class='option_row'>
+                    <div class='option_text'>
+                        ${options[x]['text']}
+                    </div>
+                    <div id='option_button_${options[x]['label']}' option='${options[x]['label']}' class='${checked} option_button'>
+                    </div>
+                </div>`;
+        str += option;
+    }
+
+    // Add instructions button
+    str += `<div class='option_row' id='instructions_button' style='cursor:pointer; margin-top:20px; border-top:1px solid var(--dark_tan); padding-top:15px;'>
+                <div class='option_text' style='width:100%; text-align:center; color:var(--blue);'>
+                    how to play
+                </div>
+            </div>`;
+
+    // A way back out to the site — someone who arrived on a shared link has no other one.
+    str += `<div class='option_row' style='margin-top:10px;'>
+                <a href='/oneatatime/' class='option_text' style='width:100%; text-align:center; color:var(--dark_tan); text-decoration:none;'>
+                    about this game
+                </a>
+            </div>`;
+
+    //Populate and show popup
+    $('#popup_content').html(str);
+    size_options();
+    $('.popup').css('visibility','visible');
+}
+
+    $(document).ready(function() {
+  
+        //Add logo
+        $('#header').html($('#logo').html());
+
+
+        //Bind sizing to Window resize
+        $(window).resize(function() {
+            sizing();
+        });
+
+        //Draw input
+        //Create letter boxes
+        for (var i = 0; i < 4; i++) {
+            $('#input').append("<div class='box "+(i<3 ? "box_border" : '')+" 'position='" + i + "' id='box_" + i + "'></div>");
+        }
+
+        //Make keyboard
+        $('#keyboard').append(make_keyboard());
+        
+        //Sizing
+        sizing();
+
+        //Bindings
+
+        $('body').on('click','.option_button',function(){
+            toggle_settings(this);
+        });
+
+        $('body').on('click','#instructions_button',function(){
+            instructions_menu();
+        });
+
+         $('body').on('click', '.box', function() {
+            //Get id
+            window.foc = $(this).attr('position');
+            //Update style
+            $(".box").removeClass('box_focus');
+            $(this).addClass('box_focus');
+            if (settings['check_letters'] == 1) {
+                check_letters(guesses[guesses.length - 1],window.foc);
+            }
+        });
+
+        $('body').on('click','#guesses > .entry',function(){
+            var guess = $(this).attr('guess');
+            wind_back(guess); 
+        });
+
+        //Header
+        $('#header').click(function(){
+            settings_menu();
+        });
+
+        $('#share').click(function(){
+            share();
+        });
+
+        //Popup close button
+        $('#popup_footer').click(function(){
+            $('.popup').css('visibility','hidden');
+        });
+
+        //Close popup when clicking outside
+        $('#overlay').click(function(e){
+            if(e.target === this) {
+                $('.popup').css('visibility','hidden');
+            }
+        });
+
+
+        //PHysical keyboard - this code needs cleanup
+        $(window).on('keydown', function(event){
+            console.log(event.key);
+            //Focus
+            if (event.key == "ArrowRight" && !(window.foc)) {
+                window.foc = 0+"";
+               //Update style
+                $(".box").removeClass('box_focus');
+                $("#box_"+(window.foc)).addClass('box_focus');
+                if (settings['check_letters'] == 1) {
+                    check_letters(guesses[guesses.length - 1],window.foc);
+                }
+            }
+            else if (event.key == "ArrowLeft" && window.foc > 0) {
+                window.foc = (window.foc-1)+"";
+               //Update style
+                $(".box").removeClass('box_focus');
+                $("#box_"+(window.foc)).addClass('box_focus');
+                if (settings['check_letters'] == 1) {
+                    check_letters(guesses[guesses.length - 1],window.foc);
+                }
+            }
+            else if (event.key == "ArrowRight" && window.foc < 3) {
+                window.foc = (window.foc-0)+1;
+               //Update style
+               $(".box").removeClass('box_focus');
+                $("#box_"+(window.foc)).addClass('box_focus');
+                if (settings['check_letters'] == 1) {
+                    check_letters(guesses[guesses.length - 1],window.foc);
+                }
+            }
+            else if ([1,2,3,4].includes(event.key-0)) {
+
+                window.foc = (event.key-1).toString();
+                //Update style
+                $(".box").removeClass('box_focus');
+                $("#box_"+(event.key-1)).addClass('box_focus');
+                if (settings['check_letters'] == 1) {
+                    check_letters(guesses[guesses.length - 1],window.foc);
+                }
+            }
+            //Letters
+            else if (window.foc && alpha.includes(event.key)){
+
+                //Assemble and test word
+                var word_arr = [];
+                for (var i = 0; i < 4; i++) {
+                    word_arr.push($('#box_' + i).html());
+                }
+                word_arr[window.foc] = event.key;
+                word = word_arr.join('');
+                if (word_list.includes(word)) {
+                    if (guesses.includes(solution[solution.length-1])) {
+    
+                    }
+                    else {
+                    //If word is good, update input box and add word to guesses
+                    $('#box_' + window.foc).html(event.key);
+                    //Add guess
+                    add_guess(word);
+                }
+            }}
+            else if (["Backspace","Delete"].includes(event.key)) {
+                wind_back(guesses.length-2);
+            }
+            else if (["Escape"].includes(event.key)) {
+                wind_back(0);
+            }
+            
+//Backspace moves up a level
+//Esc starts over
+        });
+
+        //Keypress
+        $('body').on('click', '.key', function() {
+            var key = $(this).attr('key')
+
+            if(key == "refresh") {
+new_game();
+            }
+            else if(key == "hint") {
+                hint(window.solution,window.guesses);
+            }
+            else if (window.foc) {
+                //Assemble and test word
+                var word_arr = [];
+                for (var i = 0; i < 4; i++) {
+                    word_arr.push($('#box_' + i).html());
+                }
+                word_arr[window.foc] = key;
+                word = word_arr.join('');
+                if (word_list.includes(word)) {
+                    if (guesses.includes(solution[solution.length-1])) {
+
+                    }
+                    else {
+                    //If word is good, update input box and add word to guesses
+                    $('#box_' + window.foc).html(key);
+                    //Add guess
+                    add_guess(word);
+                }
+                }
+                //If word no good, flag error
+                else {
+
+                  //  $('#box_' + window.foc).addClass('box_wrong');
+                }
+            }
+        });
+
+        //Generate game
+        new_game();
+    });
+
+    </script>
+</head>
+
+<body>
+    <div class="popup" id="overlay">
+        <div id="popup" class="popup">
+            <div id="popup_content"></div>
+            <div id="popup_footer">&#10006</div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="header"></div>
+        <div id="board">
+            <div id='guesses'></div>
+            <div id='final'></div>
+        </div>
+        <div id='input'></div>
+        <div id="info">
+            <div class='info_item' id="par"></div>
+            <div class='info_item' id="hints"></div>
+            <div class='info_item' id="thinking">thinking...</div>
+            <div class='info_item' id="share">share</div>
+        </div>
+        <div id="keyboard"></div>
+    </div>
+</body>

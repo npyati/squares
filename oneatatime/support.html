@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>one · at · a · time — support</title>
+<meta name="description" content="How to play one · at · a · time, and how to get in touch.">
+<meta name="theme-color" content="#FCFBF4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15151A" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/icon-180.png">
+<style>
+  :root {
+    --canvas:#FCFBF4; --hairline:#E6E3D6;
+    --ink:#141414; --ink-soft:#4F4E48; --ink-faint:#93918A;
+    --primary:#FFCF00; --on-accent:#141414;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --canvas:#15151A; --hairline:#35353F;
+      --ink:#F7F6F0; --ink-soft:#C0BFB6; --ink-faint:#77766F;
+      --primary:#FFE23D; --on-accent:#15151A;
+    }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", system-ui, sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 44px 24px 80px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  a { color: var(--ink); }
+
+  .home {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.3px;
+    color: var(--ink);
+    position: relative;
+    padding: 0 4px;
+  }
+  .home .mark {
+    position: absolute;
+    left: 50%; top: 54%;
+    width: 108%; height: 62%;
+    background: var(--primary);
+    border-radius: 6px;
+    transform: translate(-50%,-50%) rotate(-2.4deg);
+    z-index: 0;
+  }
+  .home span { position: relative; z-index: 1; color: var(--on-accent); }
+
+  .kicker { font-size: 12px; font-weight: 500; color: var(--ink-faint); margin: 8px 0 30px; }
+
+  h1 { font-size: 24px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 22px; }
+  h2 { font-size: 15px; font-weight: 800; margin-top: 28px; margin-bottom: 7px; }
+  p  { font-size: 14.5px; font-weight: 450; line-height: 1.72; color: var(--ink-soft); margin-bottom: 11px; }
+  ul { margin: 2px 0 11px 20px; }
+  li { font-size: 14.5px; font-weight: 450; line-height: 1.72; color: var(--ink-soft); margin-bottom: 3px; }
+  kbd {
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    background: var(--primary);
+    color: var(--on-accent);
+    border-radius: 5px;
+    padding: 1px 6px;
+  }
+
+  /* The worked example, in the game's own letterforms. */
+  .ladder { margin: 16px 0 18px; display: flex; flex-direction: column; gap: 3px; }
+  .rung { display: flex; gap: 3px; }
+  .cell { position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; }
+  .cell b { position: relative; z-index: 1; font-size: 21px; font-weight: 900; text-transform: uppercase; }
+  .cell.hit b { color: var(--on-accent); }
+  .cell i {
+    position: absolute; left: 50%; top: 50%;
+    width: 116%; height: 64%;
+    background: var(--primary);
+    border-radius: 6px;
+    transform: translate(-50%,-50%) rotate(var(--rot,-2deg));
+  }
+  /* Glyph and swipe fade separately — one opacity on the whole row would
+     compound and leave the mark invisible. On a faded rung the swiped letter
+     keeps its resting ink, because a faded swipe is a stain, not a fill. */
+  .rung.past .cell b { opacity: .34; color: var(--ink); }
+  .rung.past i { opacity: .40; }
+
+  .cta {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 12px 26px;
+    background: var(--primary);
+    color: var(--on-accent);
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 11px;
+  }
+
+  footer {
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink-soft); }
+  footer .sep { margin: 0 7px; opacity: .5; }
+</style>
+</head>
+<body>
+
+<a class="home" href="./"><i class="mark"></i><span>one &middot; at &middot; a &middot; time</span></a>
+<div class="kicker">Support</div>
+
+<h1>Help &amp; Support</h1>
+
+<h2>How do I play?</h2>
+<p>Turn the word at the top into the word at the bottom by changing <b>one letter at a time</b>. Every step along the way has to be a real word.</p>
+<p>Turning WARM into COLD, for instance, takes four moves — and each of the four letters moves exactly once:</p>
+
+<div class="ladder" aria-label="warm, ward, card, cord, cold">
+  <div class="rung past"><span class="cell"><b>w</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell"><b>m</b></span></div>
+  <div class="rung past"><span class="cell"><b>w</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell hit"><i style="--rot:-3.4deg"></i><b>d</b></span></div>
+  <div class="rung past"><span class="cell hit"><i style="--rot:2.6deg"></i><b>c</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
+  <div class="rung past"><span class="cell"><b>c</b></span><span class="cell hit"><i style="--rot:-1.8deg"></i><b>o</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
+  <div class="rung"><span class="cell"><b>c</b></span><span class="cell"><b>o</b></span><span class="cell hit"><i style="--rot:3.2deg"></i><b>l</b></span><span class="cell"><b>d</b></span></div>
+</div>
+
+<h2>The controls</h2>
+<ul>
+  <li>Tap a box — or press <kbd>1</kbd>–<kbd>4</kbd> — to choose which letter to change.</li>
+  <li>Type a letter to make the move.</li>
+  <li>Tap any earlier word to rewind to it and try a different route.</li>
+  <li><kbd>?</kbd> gives you a hint. Hints are counted.</li>
+  <li><kbd>↻</kbd> starts a fresh puzzle.</li>
+  <li><kbd>backspace</kbd> undoes your last move; <kbd>esc</kbd> starts the puzzle over.</li>
+</ul>
+
+<h2>What is par?</h2>
+<p>Par is the shortest route between the two words — the fewest moves anyone could possibly take. Matching it is the whole game. Beating it isn't possible.</p>
+
+<h2>Where are the settings?</h2>
+<p>Tap the wordmark at the top of the board. You'll find <b>show par</b>, <b>filter letters</b> (which greys out letters that can't make a word), <b>perfect 4s only</b> (par-4 puzzles where all four letters have to change), and <b>par 7+ only</b> for longer ladders. Your choices are remembered on your device.</p>
+
+<h2>Is it free? Are there ads?</h2>
+<p>Yes. No.</p>
+
+<h2>It says "thinking…" for a while</h2>
+<p>The browser version searches for a puzzle by guessing a pair of words and checking whether it fits your settings, so a narrow setting — par 7+, or perfect 4s — can take a few tries. The iOS app builds the whole word graph up front and doesn't need to guess, so it has no wait at all.</p>
+
+<h2>Do I need the app?</h2>
+<p>No — the browser game is the whole game and it's free. The iOS app adds a daily puzzle with a streak, statistics, four difficulties and a share grid, and it's on the way.</p>
+
+<h2>A word looks wrong, or one is missing</h2>
+<p>The word list is four-letter everyday English, hand-checked, with proper nouns left out. If something reads wrong to you, say so — that's the kind of report that actually improves it.</p>
+
+<h2>Get in touch</h2>
+<p>Questions, bugs, or a word you'd argue about: email <a href="mailto:squares@nickpyati.com">squares@nickpyati.com</a>. For a browser problem, a note about your browser and device helps.</p>
+
+<p><a class="cta" href="play.html">Play</a></p>
+
+<footer>
+  <a href="./">one &middot; at &middot; a &middot; time</a>
+  <span class="sep">&middot;</span>
+  <a href="privacy.html">privacy</a>
+  <span class="sep">&middot;</span>
+  <a href="/">squares</a>
+</footer>
+
+</body>
+</html>

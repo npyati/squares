@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>one · at · a · time — privacy policy</title>
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#FCFBF4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15151A" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="img/icon-180.png">
+<style>
+  :root {
+    --canvas:#FCFBF4; --hairline:#E6E3D6;
+    --ink:#141414; --ink-soft:#4F4E48; --ink-faint:#93918A;
+    --primary:#FFCF00; --on-accent:#141414;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --canvas:#15151A; --hairline:#35353F;
+      --ink:#F7F6F0; --ink-soft:#C0BFB6; --ink-faint:#77766F;
+      --primary:#FFE23D; --on-accent:#15151A;
+    }
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", system-ui, sans-serif;
+    background: var(--canvas);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 44px 24px 80px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  a { color: var(--ink); }
+
+  .home {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -.3px;
+    color: var(--ink);
+    position: relative;
+    padding: 0 4px;
+  }
+  /* The wordmark on this page wears the game's one gesture rather than repeating
+     its full letterforms — a swipe behind "a". */
+  .home .mark {
+    position: absolute;
+    left: 50%; top: 54%;
+    width: 108%; height: 62%;
+    background: var(--primary);
+    border-radius: 6px;
+    transform: translate(-50%,-50%) rotate(-2.4deg);
+    z-index: 0;
+  }
+  .home span { position: relative; z-index: 1; color: var(--on-accent); }
+
+  .kicker { font-size: 12px; font-weight: 500; color: var(--ink-faint); margin: 8px 0 30px; }
+
+  h1 { font-size: 24px; font-weight: 800; letter-spacing: -.4px; margin-bottom: 22px; }
+  h2 { font-size: 15px; font-weight: 800; margin-top: 28px; margin-bottom: 7px; }
+  p  { font-size: 14.5px; font-weight: 450; line-height: 1.72; color: var(--ink-soft); margin-bottom: 11px; }
+  ul { margin: 0 0 11px 20px; }
+  li { font-size: 14.5px; font-weight: 450; line-height: 1.72; color: var(--ink-soft); margin-bottom: 4px; }
+
+  footer {
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--hairline);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-faint);
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink-soft); }
+  footer .sep { margin: 0 7px; opacity: .5; }
+</style>
+</head>
+<body>
+
+<a class="home" href="./"><i class="mark"></i><span>one &middot; at &middot; a &middot; time</span></a>
+<div class="kicker">Last updated: August 6, 2026</div>
+
+<h1>Privacy Policy</h1>
+
+<h2>The short version</h2>
+<p>one &middot; at &middot; a &middot; time collects nothing about you. There are no accounts, no advertising, no analytics, and no tracking of any kind. Nothing you do in the game is sent anywhere.</p>
+
+<h2>The browser game</h2>
+<p>The game at <a href="play.html">squaresga.me/oneatatime/play.html</a> runs entirely in your browser. Your settings — show par, filter letters, perfect 4s only, par 7+ only — are kept in your browser's local storage on your own device so the game remembers them next time. Clearing your browser data removes them.</p>
+<p>The puzzle itself is generated on your device from a word list that ships with the page. No puzzle you play, and no solution you find, leaves your browser.</p>
+
+<h2>Requests the page makes</h2>
+<p>Loading the game requests two typefaces, Merriweather and Rubik, from Google Fonts. Google receives the ordinary information any web request carries — including your IP address — and its handling of that is governed by <a href="https://policies.google.com/privacy">Google's privacy policy</a>. Everything else the page needs is served from this site.</p>
+
+<h2>Sharing a puzzle</h2>
+<p>Sharing your result hands your device's own share sheet a line of text and a link. That link encodes only the two words of the puzzle — for example <code>?given=warm&amp;target=cold</code> — so whoever opens it gets the same puzzle. It carries nothing about you, and no copy of it is kept here.</p>
+
+<h2>Hosting</h2>
+<p>This site is served by GitHub Pages. Like any web host, GitHub receives the requests your browser makes for these pages; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub privacy statement</a>. No logs or analytics are collected on top of that.</p>
+
+<h2>The iOS app</h2>
+<p>When the iOS app ships it will store your games, statistics, streak and preferences on your device, and will make no network requests at all. This page will be updated with anything that changes before it's released.</p>
+
+<h2>Children's privacy</h2>
+<p>No personal information is collected from anyone, including children under 13.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the updated version will be posted here with a new date.</p>
+
+<h2>Questions</h2>
+<p>Email <a href="mailto:squares@nickpyati.com">squares@nickpyati.com</a>.</p>
+
+<footer>
+  <a href="./">one &middot; at &middot; a &middot; time</a>
+  <span class="sep">&middot;</span>
+  <a href="support.html">support</a>
+  <span class="sep">&middot;</span>
+  <a href="/">squares</a>
+</footer>
+
+</body>
+</html>

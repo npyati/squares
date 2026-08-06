@@ -24,11 +24,15 @@
     font-family: 'Optic', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
     background: #f5f0eb;
     min-height: 100vh;
-    overflow: hidden;
+    /* Vertically centred when there's room, scrollable when there isn't. Plain
+       `justify-content: center` clips the top of an overflowing flex child, and
+       the page is now tall enough to overflow a short phone. */
+    overflow-x: hidden;
+    padding: 36px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   canvas {
@@ -43,6 +47,7 @@
   .content {
     position: relative;
     z-index: 2;
+    margin: auto 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -107,11 +112,76 @@
   }
   .badge:hover { transform: scale(1.03); opacity: 0.9; }
   .badge:active { transform: scale(0.98); }
+
+  /* --- The other game -----------------------------------------------------
+     squares is the headline, so this stays quiet: one row, below the badge,
+     wearing one chip of the other game's colour rather than its whole
+     personality. */
+  .sibling {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-top: 40px;
+    padding-top: 26px;
+    border-top: 1px solid #e2dcd4;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+  .sibling:hover { opacity: 0.72; }
+
+  .sib-mark {
+    position: relative;
+    flex: none;
+    width: 34px;
+    height: 24px;
+    background: #FFCF00;
+    border-radius: 5px;
+    transform: rotate(-3deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sib-mark b {
+    font-family: ui-rounded, "SF Pro Rounded", -apple-system, system-ui, sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+    color: #141414;
+    transform: rotate(3deg);
+  }
+
+  .sib-text { text-align: left; line-height: 1.35; }
+  .sib-text b {
+    display: block;
+    font-family: 'Optic', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1a1a;
+    letter-spacing: -0.2px;
+  }
+  .sib-text em {
+    display: block;
+    font-family: 'Optic', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 12px;
+    color: #999;
+    margin-top: 2px;
+  }
+  .sib-arrow { font-size: 13px; color: #bbb; margin-left: 2px; }
+
   @media (prefers-color-scheme: dark) {
     body { background: #1a1a1a; }
     .logo span { color: #f5f0eb; }
     .tagline { color: #666; }
     .warn-line1, .warn-line2 { color: #f5f0eb; }
+    .sibling { border-top-color: #2e2e2e; }
+    /* The chip stays dark-on-yellow in both appearances — a fluorescent is
+       bright whichever way the system is set. */
+    .sib-mark { background: #FFE23D; }
+    .sib-text b { color: #f5f0eb; }
+    .sib-text em { color: #777; }
+    .sib-arrow { color: #555; }
   }
 </style>
 </head>
@@ -136,6 +206,15 @@
     <span style="color:#ccc;margin:0 7px;">&middot;</span>
     <a href="support.html" style="color:#bbb;text-decoration:none;">support</a>
   </div>
+
+  <a class="sibling" href="/oneatatime/">
+    <span class="sib-mark" aria-hidden="true"><b>a</b></span>
+    <span class="sib-text">
+      <b>one &middot; at &middot; a &middot; time</b>
+      <em>a word ladder puzzle</em>
+    </span>
+    <span class="sib-arrow" aria-hidden="true">&rarr;</span>
+  </a>
 </div>
 
 <script>
