@@ -50,6 +50,16 @@
     }
   }
 
+  /* Optic, the face nickpyati.com is set in — used here only for the credit at the
+     very bottom, so that link reads as belonging to that site rather than this one.
+     The file is injected at deploy time from repository secrets. */
+  @font-face {
+    font-family: 'Optic';
+    src: url('/fonts/Optic-Book.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+  }
+
   * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
@@ -95,12 +105,33 @@
     flex-direction: column;
     align-items: center;
     gap: 3px;
-    /* Reserve the finished height so the page doesn't reflow as rungs land. */
-    min-height: 222px;
-    justify-content: flex-start;
   }
 
-  .rung { display: flex; gap: 3px; }
+  /* Three columns rather than a plain row: a gutter for the start/goal labels, the
+     four letters, and a mirror of the gutter so the letters stay centred on the page
+     whatever the labels say. */
+  .rung {
+    display: grid;
+    grid-template-columns: 46px max-content 46px;
+    align-items: center;
+  }
+  .cells { display: flex; gap: 3px; }
+
+  .tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  /* Both ends of the ladder are on screen from the first frame. Without the goal
+     sitting there the animation looked like letters changing for their own sake —
+     you couldn't see there was a word being aimed at. */
+  .rung.pending { visibility: hidden; }
+  .rung.goal { margin-top: 11px; }
 
   .cell {
     position: relative;
@@ -195,27 +226,27 @@
   }
   .rules span:last-child { color: var(--ink-faint); }
 
-  /* --- Call to action ----------------------------------------------------- */
-  .cta {
-    display: inline-block;
-    margin-top: 38px;
-    padding: 15px 34px;
-    background: var(--primary);
-    color: var(--on-accent);
-    font-size: 17px;
-    font-weight: 800;
-    text-decoration: none;
+  /* --- What's coming ------------------------------------------------------ */
+  /* No button. The thing being announced is the app, and there isn't one to link
+     to yet — a browser build advertised here would only compete with it. */
+  .coming {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px 13px 16px;
+    border: 1px solid var(--hairline);
     border-radius: 13px;
-    transition: transform .15s ease, box-shadow .15s ease;
   }
-  .cta:hover { transform: translateY(-1px) scale(1.02); }
-  .cta:active { transform: scale(.98); }
-
-  .soon {
-    margin-top: 16px;
-    font-size: 13px;
+  .coming img { width: 34px; height: 34px; border-radius: 8px; display: block; }
+  .coming span { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .coming em {
+    display: block;
+    font-style: normal;
+    font-size: 12px;
     font-weight: 500;
     color: var(--ink-faint);
+    margin-top: 1px;
   }
 
   /* --- Footer ------------------------------------------------------------- */
@@ -233,33 +264,62 @@
   .meta .sep { margin: 0 7px; opacity: .5; }
 
   /* The other game on this site. Squares is the headline, so it gets a real
-     row here rather than a link buried in the fine print. */
+     row here rather than a link buried in the fine print — and its own app icon
+     rather than an approximation of it. */
   .sibling {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 9px;
-    margin-bottom: 18px;
-    font-size: 13px;
+    gap: 10px;
+    margin-bottom: 20px;
+    text-align: left;
+    text-decoration: none;
+    transition: opacity .15s ease;
+  }
+  .sibling:hover { opacity: .72; }
+  .sibling img { width: 30px; height: 30px; border-radius: 7px; display: block; }
+  .sibling b {
+    display: block;
+    font-size: 13.5px;
+    font-weight: 800;
+    letter-spacing: -.2px;
+    color: var(--ink);
+  }
+  .sibling em {
+    display: block;
+    font-style: normal;
+    font-size: 11.5px;
     font-weight: 500;
     color: var(--ink-faint);
-    text-decoration: none;
+    margin-top: 1px;
   }
-  .sibling:hover { color: var(--ink-soft); }
-  .sibling b { color: var(--ink); font-weight: 800; letter-spacing: -.3px; }
-  .sibling .chips { display: flex; gap: 3px; }
-  .sibling .chips i { width: 9px; height: 9px; border-radius: 2px; display: block; }
+
+  /* Set in Optic, the face nickpyati.com uses, and cased and tracked the way that
+     site sets the name itself. */
+  .byline {
+    display: inline-block;
+    margin-top: 20px;
+    font-family: 'Optic', ui-rounded, system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-faint);
+    transition: color .15s ease;
+  }
+  .byline:hover { color: var(--ink-soft); }
 
   @media (max-width: 400px) {
     body { padding-top: 40px; }
     .cell { width: 38px; height: 38px; }
     .cell b { font-size: 26px; }
-    .ladder { min-height: 202px; }
+    .rung { grid-template-columns: 40px max-content 40px; }
+    .tag { font-size: 9px; padding-right: 8px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .rung.drawn .swipe { animation: none; clip-path: inset(0 0 0 0); }
-    .swipe, .cell b, .par, .replay, .cta { transition: none; }
+    .swipe, .cell b, .par, .replay { transition: none; }
     .par.on { transform: none; }
   }
 </style>
@@ -359,32 +419,35 @@
   <button class="replay" id="replay" type="button">replay</button>
 
   <div class="rules">
+    <span>Get from the start word to the goal.</span>
     <span>Change <b>one letter at a time</b>.</span>
     <span>Every step has to be a real word.</span>
-    <span>Par is the shortest route there is.</span>
   </div>
 
-  <a class="cta" href="play.html">Play in your browser</a>
-
-  <!-- When the app ships, swap this line for the App Store badge, the same way
+  <!-- When the app ships, swap this block for the App Store badge, the same way
        the squares homepage carries one:
        <a href="https://apps.apple.com/app/idXXXXXXXXX"><picture>…</picture></a> -->
-  <p class="soon">An iOS app is on the way.</p>
+  <div class="coming">
+    <img src="img/icon-180.png" alt="" width="34" height="34">
+    <span>Coming to iPhone and iPad<em>an App Store release is on the way</em></span>
+  </div>
 
 </main>
 
 <footer>
   <a class="sibling" href="/">
-    <span class="chips" aria-hidden="true">
-      <i style="background:#e05a6d"></i><i style="background:#5bbf9b"></i><i style="background:#4da6e8"></i>
+    <img src="/apple-touch-icon.png" alt="" width="30" height="30">
+    <span>
+      <b>squares</b>
+      <em>compounding complexity &rarr;</em>
     </span>
-    <span>also here: <b>squares</b>, a puzzle game</span>
   </a>
   <div class="meta">
     <a href="privacy.html">privacy</a>
     <span class="sep">&middot;</span>
     <a href="support.html">support</a>
   </div>
+  <a class="byline" href="https://nickpyati.com">Nick Pyati</a>
 </footer>
 
 <script>
@@ -402,11 +465,11 @@
 // WARM → COLD in four, the real shortest route, which also happens to move
 // each of the four letters exactly once.
 var LADDER = [
-  { word: 'warm', hit: -1 },
+  { word: 'warm', hit: -1, tag: 'start' },
   { word: 'ward', hit: 3 },
   { word: 'card', hit: 0 },
   { word: 'cord', hit: 1 },
-  { word: 'cold', hit: 2 }
+  { word: 'cold', hit: 2, tag: 'goal' }
 ];
 
 // No two swipes are identical, and none of them is random: a mark that rolled
@@ -428,7 +491,15 @@ var timers  = [];
 
 function buildRung(step, index) {
   var rung = document.createElement('div');
-  rung.className = 'rung';
+  rung.className = 'rung' + (step.tag === 'goal' ? ' goal' : '');
+
+  var tag = document.createElement('span');
+  tag.className = 'tag';
+  tag.textContent = step.tag || '';
+  rung.appendChild(tag);
+
+  var cells = document.createElement('span');
+  cells.className = 'cells';
   for (var i = 0; i < step.word.length; i++) {
     var cell = document.createElement('span');
     cell.className = 'cell' + (i === step.hit ? ' hit' : '');
@@ -445,48 +516,66 @@ function buildRung(step, index) {
     var glyph = document.createElement('b');
     glyph.textContent = step.word[i];
     cell.appendChild(glyph);
-    rung.appendChild(cell);
+    cells.appendChild(cell);
   }
+  rung.appendChild(cells);
+
+  rung.appendChild(document.createElement('span')); // mirror gutter, keeps letters centred
   return rung;
+}
+
+// Every rung exists from the first frame so the ladder never reflows and, more to the
+// point, so the goal is on screen before the first letter moves — the whole game is
+// aiming at that word, and an animation that reveals it last doesn't say so.
+function layout() {
+  ladder.innerHTML = '';
+  return LADDER.map(function (step, i) {
+    var rung = buildRung(step, i);
+    if (i > 0) rung.classList.add('pending');
+    ladder.appendChild(rung);
+    return rung;
+  });
 }
 
 function run() {
   timers.forEach(clearTimeout);
   timers = [];
-  ladder.innerHTML = '';
   parEl.classList.remove('on');
   replayEl.classList.remove('on');
 
+  var rungs = layout();
+  // The goal is legible from the start; only its swipe waits for the move that lands
+  // on it, so arriving still reads as arriving.
+  rungs[rungs.length - 1].classList.remove('pending');
+
   if (reduced) {
-    LADDER.forEach(function (step, i) {
-      var rung = buildRung(step, i);
+    rungs.forEach(function (rung, i) {
+      rung.classList.remove('pending');
       rung.classList.add('drawn');
-      if (i < LADDER.length - 1) rung.classList.add('past');
-      ladder.appendChild(rung);
+      if (i < rungs.length - 1) rung.classList.add('past');
     });
     parEl.classList.add('on');
     replayEl.classList.add('on');
     return;
   }
 
-  LADDER.forEach(function (step, i) {
+  rungs.forEach(function (rung, i) {
+    if (i === 0) return;
     timers.push(setTimeout(function () {
-      var prev = ladder.lastElementChild;
-      if (prev) prev.classList.add('past');
-      var rung = buildRung(step, i);
-      ladder.appendChild(rung);
+      rungs[i - 1].classList.add('past');
+      rung.classList.remove('pending');
       // One frame un-drawn, so the swipe has a state to animate out of and the
       // glyph has a colour to transition from.
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { rung.classList.add('drawn'); });
       });
-    }, 500 + i * 850));
+    }, 700 + (i - 1) * 850));
   });
 
   timers.push(setTimeout(function () {
     parEl.classList.add('on');
     replayEl.classList.add('on');
-  }, 500 + LADDER.length * 850));
+  }, 700 + LADDER.length * 850));
 }
 
 replayEl.addEventListener('click', run);

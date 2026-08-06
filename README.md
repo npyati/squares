@@ -39,9 +39,20 @@ quirks mode and adding one collapses the layout. Re-porting it from upstream mea
 reapplying those three changes, not overwriting the file.
 
 The landing page's colours and its faded-history / delayed-glyph rules come from the iOS
-app's `Palette.swift`, so the two stay recognisably the same game. The App Store badge is
-commented out in `oneatatime/index.html` and the "on the way" line above it goes when the
-app ships.
+app's `Palette.swift`, so the two stay recognisably the same game. Its hero shows both
+ends of the ladder — `START warm` and `GOAL cold` — from the first frame, because an
+animation that reveals the target last doesn't say there is one.
+
+The landing page advertises the **app**, not the browser build: there's no play button,
+and the web version is reachable only from "do I need the app to play?" on the support
+page, the way squares does it. When the app ships, swap the commented-out App Store badge
+in `oneatatime/index.html` for the "coming to iPhone and iPad" card above it.
+
+Both landing pages close with a credit to [nickpyati.com](https://nickpyati.com), set in
+Optic — that site's own face — which is why `oneatatime/index.html` carries an
+`@font-face` pointing at `/fonts/Optic-Book.otf`. That file is gitignored and written by
+CI, so the credit falls back to system rounded type when the site is served from a working
+copy.
 
 ---
 
