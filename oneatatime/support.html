@@ -78,19 +78,20 @@
   .rung { display: flex; gap: 3px; }
   .cell { position: relative; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; }
   .cell b { position: relative; z-index: 1; font-size: 21px; font-weight: 900; text-transform: uppercase; }
-  .cell.hit b { color: var(--on-accent); }
+  /* The letter that moved is underlined, the way the app marks a rung it has
+     climbed: a thin pass of the same pen, dropped well clear of the baseline. */
   .cell i {
-    position: absolute; left: 50%; top: 50%;
-    width: 116%; height: 64%;
+    position: absolute; left: 50%; top: 90%;
+    width: 104%; height: 3px;
     background: var(--primary);
-    border-radius: 6px;
+    border-radius: 2px;
     transform: translate(-50%,-50%) rotate(var(--rot,-2deg));
   }
-  /* Glyph and swipe fade separately — one opacity on the whole row would
-     compound and leave the mark invisible. On a faded rung the swiped letter
-     keeps its resting ink, because a faded swipe is a stain, not a fill. */
-  .rung.past .cell b { opacity: .34; color: var(--ink); }
-  .rung.past i { opacity: .40; }
+  /* Glyph and mark fade separately — one opacity on the whole row would compound
+     and leave the mark invisible, and the mark is the only record of which
+     column moved. */
+  .rung.past .cell b { opacity: .34; }
+  .rung.past i { opacity: .62; }
 
   footer {
     margin-top: 52px;
@@ -118,10 +119,10 @@
 
 <div class="ladder" aria-label="warm, ward, card, cord, cold">
   <div class="rung past"><span class="cell"><b>w</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell"><b>m</b></span></div>
-  <div class="rung past"><span class="cell"><b>w</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell hit"><i style="--rot:-3.4deg"></i><b>d</b></span></div>
-  <div class="rung past"><span class="cell hit"><i style="--rot:2.6deg"></i><b>c</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
-  <div class="rung past"><span class="cell"><b>c</b></span><span class="cell hit"><i style="--rot:-1.8deg"></i><b>o</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
-  <div class="rung"><span class="cell"><b>c</b></span><span class="cell"><b>o</b></span><span class="cell hit"><i style="--rot:3.2deg"></i><b>l</b></span><span class="cell"><b>d</b></span></div>
+  <div class="rung past"><span class="cell"><b>w</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell hit"><i style="--rot:-3.1deg"></i><b>d</b></span></div>
+  <div class="rung past"><span class="cell hit"><i style="--rot:0.6deg"></i><b>c</b></span><span class="cell"><b>a</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
+  <div class="rung past"><span class="cell"><b>c</b></span><span class="cell hit"><i style="--rot:-2.4deg"></i><b>o</b></span><span class="cell"><b>r</b></span><span class="cell"><b>d</b></span></div>
+  <div class="rung"><span class="cell"><b>c</b></span><span class="cell"><b>o</b></span><span class="cell hit"><i style="--rot:-1.2deg"></i><b>l</b></span><span class="cell"><b>d</b></span></div>
 </div>
 
 <h2>The controls</h2>
@@ -144,7 +145,7 @@
 <p>Yes. No.</p>
 
 <h2>When can I get it?</h2>
-<p>The iOS app is on the way. It has a daily puzzle with a streak, four difficulties, lifetime statistics and a spoiler-free share grid.</p>
+<p>iOS app coming soon. It has a daily puzzle with a streak, four difficulties, lifetime statistics and a spoiler-free share grid.</p>
 
 <h2>Do I need the app to play?</h2>
 <p>Not really. I originally made this on the web, and that version is <a href="play.html">right here</a>.</p>

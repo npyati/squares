@@ -19,13 +19,12 @@
 <style>
   /* --- Marker ---------------------------------------------------------------
      The game's personality, carried over from the app: a page someone got at
-     with highlighters. The letter that moved wears a fluorescent swipe;
-     everything else stays pencil.
+     with highlighters. The letter that moved wears a thin fluorescent rule
+     under it; everything else stays pencil.
 
      One hard rule, inherited from Palette.swift: fluorescent yellow is a fill,
-     never a foreground. Anything sitting *on* a swipe uses --on-accent, which
-     is dark in BOTH appearances — a fluorescent is bright whichever way the
-     system is set.
+     never a foreground. Nothing on this page is set *in* it — which is part of
+     why the mark goes under the letter rather than across it.
      ------------------------------------------------------------------------ */
   :root {
     --canvas:    #FCFBF4;
@@ -35,7 +34,6 @@
     --ink-faint: #93918A;
     --primary:   #FFCF00;
     --success:   #00A870;
-    --on-accent: #141414;
   }
   @media (prefers-color-scheme: dark) {
     :root {
@@ -46,7 +44,6 @@
       --ink-faint: #77766F;
       --primary:   #FFE23D;
       --success:   #3DFFB0;
-      --on-accent: #15151A;
     }
   }
 
@@ -86,9 +83,32 @@
   }
 
   /* --- Wordmark ----------------------------------------------------------- */
-  /* The same letterforms the game itself wears, lifted from its own SVG. */
-  .wordmark { width: 100%; max-width: 320px; height: auto; display: block; }
-  .wordmark svg { width: 100%; height: auto; display: block; }
+  /* Set live, exactly the way Wordmark.swift sets it: the rounded black the rest
+     of the game is set in, lowercase, tracked in a touch, with undersized faint
+     interpuncts pacing the phrase.
+
+     This used to be traced SVG outlines lifted from the old browser build. Those
+     outlines were neither this face nor evenly spaced — the gaps either side of
+     the lone "a" ran a third wider than the one after "one" — and being artwork
+     rather than type, the spacing couldn't be fixed without redrawing them. */
+  .wordmark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .16em;
+    font-size: clamp(30px, 8.8vw, 44px);
+    font-weight: 900;
+    letter-spacing: -.02em;
+    line-height: 1.15;
+    color: var(--ink);
+  }
+  /* Quiet and small. At the mark's own weight the dots competed with the
+     letterforms and read as debris; undersized they do what punctuation is for. */
+  .wordmark i {
+    font-style: normal;
+    font-size: .62em;
+    color: var(--ink-faint);
+  }
 
   .tagline {
     margin-top: 14px;
@@ -150,54 +170,51 @@
     letter-spacing: 0;
     text-transform: uppercase;
     color: var(--ink);
-    transition: color .12s ease .28s, opacity .5s ease;
+    transition: color .3s ease, opacity .5s ease;
   }
 
   /* History. Every rung that isn't live fades to the same degree — the question
-     the board answers is "is this the word I'm working on", which is binary.
-     Glyph and swipe fade separately rather than through one opacity on the rung:
-     compounding 0.32 on the row with another 0.45 on the mark left the swipe at
-     0.14, which on cream is not a stain but nothing at all. */
+     the board answers is "is this the word I'm working on", which is binary. */
   .rung.past .cell b { opacity: .34; }
-  .rung.past .swipe  { opacity: .40; }
-  /* On a faded rung the swiped letter keeps its resting ink rather than
-     --on-accent: a faded swipe is a stain, not a fill, and dark ink on it
-     disappears once the row is dimmed too. */
-  .rung.drawn:not(.past) .cell.hit b { color: var(--on-accent); }
+  /* The mark doesn't recede as far as the row it sits on. It is the only record
+     of which column moved, and a 4px rule taken down to a third of its ink is
+     nothing at all. Holding the marks up while the letters drop back is also
+     what turns them into a trail: a legible line of steps across four columns. */
+  .rung.past .mark { opacity: .62; }
 
-  .swipe {
+  /* The letter that moved is underlined, not highlighted — the same mark the app
+     draws beneath a rung it has climbed. Thin, dropped well clear of the
+     baseline, and never quite straight: these letters are set in a black weight
+     with a large cap height, so a rule any closer stops reading as a mark under
+     the letter and starts reading as part of it. */
+  .mark {
     position: absolute;
     left: 50%;
-    top: calc(50% + var(--dy, 0px));
-    width: var(--w, 112%);
-    height: 66%;
+    /* 90% of the cell, which is where font × 0.58 below the glyph's centre lands
+       at both sizes this board is set at. */
+    top: 90%;
+    width: var(--w, 104%);
+    height: 4px;
     background: var(--primary);
-    border-radius: var(--r, 7px);
-    transform: translate(-50%, -50%) rotate(var(--rot, -2deg));
+    border-radius: 2px;
+    transform: translate(calc(-50% + var(--dx, 0px)), -50%) rotate(var(--rot, -2deg));
     /* Drawn, not revealed — it's the game's one gesture, so it behaves like a
-       gesture. Left to right, the way a real swipe goes. */
+       gesture. Left to right, the way a real stroke goes. */
     clip-path: inset(0 100% 0 0);
     transition: opacity .5s ease;
   }
-  .rung.drawn .swipe { animation: draw .42s cubic-bezier(.2,.7,.3,1) forwards; }
+  .rung.drawn .mark { animation: draw .34s cubic-bezier(.2,.7,.3,1) forwards; }
   @keyframes draw { to { clip-path: inset(0 0 0 0); } }
 
-  .par {
-    margin-top: 20px;
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--success);
-    opacity: 0;
-    transform: scale(.9);
-  }
-  .par.on {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity .3s ease, transform .35s cubic-bezier(.34,1.56,.64,1);
-  }
+  /* The goal is on screen from the first frame, but until the ladder reaches it
+     it is somewhere to get to rather than a word already played — so it is set
+     softer than the rungs, and turns green on arrival. */
+  .rung.goal .cell b { color: var(--ink-soft); }
+  .rung.goal.drawn .cell b { color: var(--success); }
+  .rung.goal.drawn .tag { color: var(--success); }
 
   .replay {
-    margin-top: 10px;
+    margin-top: 26px;
     background: none;
     border: 0;
     font: inherit;
@@ -240,14 +257,6 @@
   }
   .coming img { width: 34px; height: 34px; border-radius: 8px; display: block; }
   .coming span { font-size: 15px; font-weight: 700; color: var(--ink); }
-  .coming em {
-    display: block;
-    font-style: normal;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--ink-faint);
-    margin-top: 1px;
-  }
 
   /* --- Footer ------------------------------------------------------------- */
   footer {
@@ -318,9 +327,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .rung.drawn .swipe { animation: none; clip-path: inset(0 0 0 0); }
-    .swipe, .cell b, .par, .replay { transition: none; }
-    .par.on { transform: none; }
+    .rung.drawn .mark { animation: none; clip-path: inset(0 0 0 0); }
+    .mark, .cell b, .replay { transition: none; }
   }
 </style>
 </head>
@@ -328,94 +336,13 @@
 
 <main>
 
-  <div class="wordmark">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="306.53 62.12 857.41 56.40" role="img" aria-label="one at a time" fill="currentColor">
-<g transform="translate(220.000000,162.000000) scale(0.070000,-0.070000)" stroke="none">
-<g class="word-one">
-<path d="M1428 1166 c-57 -21 -85 -42 -116 -88 -23 -36 -27 -53 -30 -127 -3
--78 -1 -91 25 -141 39 -76 91 -105 188 -105 56 0 79 5 115 25 62 35 101 100
-107 183 9 113 -31 203 -109 243 -43 22 -134 28 -180 10z m115 -57 c37 -29 50
--81 46 -191 -3 -79 -8 -102 -25 -125 -43 -58 -101 -54 -140 10 -15 26 -19 51
--19 132 0 113 14 158 54 180 36 20 54 18 84 -6z"/>
-<path d="M1865 1173 c-67 -8 -75 -13 -75 -39 0 -19 7 -28 30 -36 l30 -10 -2
--162 c-3 -158 -3 -161 -25 -164 -17 -3 -23 -10 -23 -28 0 -24 0 -24 105 -24
-105 0 105 0 105 24 0 18 -6 25 -22 28 -23 3 -23 6 -26 154 l-3 151 28 18 c14
-10 45 20 67 22 33 4 45 1 61 -17 18 -20 20 -36 20 -174 0 -149 0 -151 -22
--154 -17 -3 -23 -10 -23 -28 0 -24 0 -24 105 -24 l105 0 0 25 c0 20 -5 25 -25
-25 l-25 0 0 158 c0 189 -13 232 -75 252 -49 16 -117 6 -173 -25 -24 -14 -46
--25 -48 -25 -1 0 -4 12 -6 28 -3 29 -19 34 -83 25z"/>
-<path d="M2500 1169 c-51 -15 -97 -54 -122 -102 -34 -64 -32 -194 3 -262 30
--59 82 -93 157 -102 55 -6 146 16 181 44 19 16 20 21 9 36 -12 17 -16 17 -50
-2 -86 -35 -162 -10 -192 65 -32 81 -34 80 118 80 l134 0 7 38 c7 44 -6 112
--29 147 -33 51 -139 77 -216 54z m105 -64 c20 -19 25 -34 25 -75 l0 -50 -81 0
--82 0 6 45 c8 52 23 80 52 94 33 16 54 12 80 -14z"/>
-</g>
-<g class="dot">
-<path d="M3871 1009 c-41 -41 -42 -85 -2 -128 39 -41 82 -42 122 -2 21 22 29
-39 29 66 0 27 -8 44 -29 66 -40 39 -80 39 -120 -2z"/>
-</g>
-<g class="word-at">
-<path d="M5524 1228 c-15 -42 -26 -56 -51 -67 -44 -19 -45 -51 -3 -51 l30 0 0
--179 c0 -156 2 -182 18 -201 24 -29 86 -36 153 -16 70 21 79 27 73 53 -5 20
--11 21 -55 16 -77 -9 -79 -6 -79 173 l0 154 65 0 65 0 0 30 0 30 -65 0 -65 0
-0 55 0 55 -34 0 c-31 0 -35 -3 -52 -52z"/>
-<path d="M5084 1160 c-75 -24 -89 -38 -73 -73 l11 -25 42 19 c60 27 137 25
-164 -4 13 -13 22 -36 22 -53 0 -30 -1 -30 -80 -42 -135 -19 -190 -62 -190
--150 0 -114 130 -168 234 -97 45 31 46 31 46 1 0 -31 26 -40 91 -31 43 6 49
-10 49 31 0 17 -6 24 -19 24 -18 0 -19 11 -23 163 -5 179 -13 209 -62 234 -48
-25 -142 26 -212 3z m166 -290 c0 -67 -1 -70 -30 -85 -63 -33 -120 -5 -120 58
-0 52 55 93 128 96 21 1 22 -3 22 -69z"/>
-</g>
-<g class="dot">
-<path d="M7111 1026 c-13 -7 -30 -24 -37 -37 -51 -92 72 -183 146 -109 43 43
-32 118 -21 145 -34 18 -57 18 -88 1z"/>
-</g>
-<g class="word-a">
-<path d="M8690 1162 c-92 -31 -100 -37 -87 -71 l10 -28 41 18 c51 23 134 25
-164 3 16 -11 22 -25 22 -53 l0 -37 -75 -12 c-127 -20 -182 -60 -191 -139 -7
--49 21 -100 67 -125 45 -25 118 -18 171 17 l38 25 0 -25 c0 -31 32 -41 97 -29
-39 7 49 13 51 32 3 18 -1 22 -22 22 l-26 0 0 155 c0 171 -9 211 -54 240 -39
-26 -140 29 -206 7z m150 -291 c0 -61 -3 -72 -22 -85 -30 -21 -81 -20 -101 2
--59 65 -4 147 101 151 21 1 22 -3 22 -68z"/>
-</g>
-<g class="dot">
-<path d="M10431 1026 c-13 -7 -30 -24 -37 -37 -51 -92 72 -183 146 -109 43 43
-32 118 -21 145 -34 18 -57 18 -88 1z"/>
-</g>
-<g class="word-time">
-<path d="M11654 1228 c-15 -42 -26 -56 -51 -67 -44 -19 -45 -51 -3 -51 l30 0
-0 -179 c0 -156 2 -182 18 -201 24 -29 86 -36 153 -16 70 21 79 27 73 53 -5 20
--11 21 -55 16 -77 -9 -79 -6 -79 173 l0 154 65 0 65 0 0 30 0 30 -65 0 -65 0
-0 55 0 55 -34 0 c-31 0 -35 -3 -52 -52z"/>
-<path d="M11982 1364 c-31 -21 -31 -88 -1 -105 23 -12 74 -6 96 12 18 16 17
-74 -3 93 -20 20 -63 20 -92 0z"/>
-<path d="M12030 1174 c-14 -3 -44 -7 -67 -10 -39 -5 -43 -8 -43 -33 0 -24 5
--30 30 -35 l30 -6 -2 -162 -3 -163 -27 -3 c-22 -3 -28 -9 -28 -28 l0 -24 115
-0 115 0 0 24 c0 19 -6 25 -27 28 l-28 3 -3 200 c-2 189 -7 220 -32 213 -3 0
--16 -2 -30 -4z"/>
-<path d="M12285 1173 c-68 -9 -75 -12 -75 -42 0 -22 6 -30 25 -35 l25 -6 0
--165 0 -165 -25 0 c-20 0 -25 -5 -25 -25 l0 -25 110 0 110 0 0 25 c0 20 -5 25
--25 25 l-25 0 0 155 0 155 33 20 c42 26 89 26 113 -1 17 -19 19 -38 19 -173 0
--149 0 -151 -22 -154 -17 -3 -23 -10 -23 -28 0 -24 0 -24 110 -24 110 0 110 0
-110 24 0 19 -6 25 -27 28 l-28 3 -3 155 -2 155 29 18 c46 27 97 23 118 -10 15
--23 18 -50 18 -173 0 -143 0 -145 -22 -148 -17 -3 -23 -10 -23 -28 0 -24 0
--24 110 -24 110 0 110 0 110 24 0 19 -6 25 -27 28 l-28 3 -5 165 c-4 110 -10
-174 -19 192 -32 63 -138 74 -229 23 -41 -23 -47 -24 -55 -9 -11 20 -68 44
--104 44 -23 0 -72 -18 -160 -56 -7 -4 -13 6 -15 23 -3 30 -15 34 -73 26z"/>
-<path d="M13190 1169 c-51 -15 -97 -54 -122 -102 -34 -64 -32 -194 3 -262 30
--59 82 -93 157 -102 55 -6 146 16 181 44 19 16 20 21 9 36 -12 17 -16 17 -50
-2 -86 -35 -162 -10 -192 65 -32 81 -34 80 118 80 l134 0 7 38 c7 44 -6 112
--29 147 -33 51 -139 77 -216 54z m105 -64 c20 -19 25 -34 25 -75 l0 -50 -81 0
--82 0 6 45 c8 52 23 80 52 94 33 16 54 12 80 -14z"/>
-</g>
-</g>
-</svg>
-  </div>
+  <h1 class="wordmark" aria-label="one at a time">
+    <span>one</span><i aria-hidden="true">&middot;</i><span>at</span><i aria-hidden="true">&middot;</i><span>a</span><i aria-hidden="true">&middot;</i><span>time</span>
+  </h1>
 
   <p class="tagline">a word ladder puzzle</p>
 
-  <div class="ladder" id="ladder" aria-label="warm, ward, card, cord, cold — solved in four moves"></div>
-  <div class="par" id="par">solved in 4 &middot; that's par</div>
+  <div class="ladder" id="ladder" aria-label="warm, ward, card, cord, cold"></div>
   <button class="replay" id="replay" type="button">replay</button>
 
   <div class="rules">
@@ -429,7 +356,7 @@
        <a href="https://apps.apple.com/app/idXXXXXXXXX"><picture>…</picture></a> -->
   <div class="coming">
     <img src="img/icon-180.png" alt="" width="34" height="34">
-    <span>Coming to iPhone and iPad<em>an App Store release is on the way</em></span>
+    <span>iOS app coming soon</span>
   </div>
 
 </main>
@@ -439,7 +366,7 @@
     <img src="/apple-touch-icon.png" alt="" width="30" height="30">
     <span>
       <b>squares</b>
-      <em>compounding complexity &rarr;</em>
+      <em>compounding complexity</em>
     </span>
   </a>
   <div class="meta">
@@ -472,19 +399,19 @@ var LADDER = [
   { word: 'cold', hit: 2, tag: 'goal' }
 ];
 
-// No two swipes are identical, and none of them is random: a mark that rolled
-// fresh numbers would twitch on every replay. Angle, width, drop and corner are
-// fixed per rung, the way the app seeds each mark on its own identity.
+// No two marks are identical, and none of them is random: a mark that rolled
+// fresh numbers would twitch on every replay. Angle, width and drift are fixed
+// per rung, the way the app seeds each mark on its own identity. The angles run
+// mostly anticlockwise because a right hand dragging left to right rises.
 var MARKS = [
   null,
-  { rot: '-3.4deg', w: '120%', dy: '1px',  r: '8px' },
-  { rot: '2.6deg',  w: '112%', dy: '-1px', r: '6px' },
-  { rot: '-1.8deg', w: '124%', dy: '2px',  r: '9px' },
-  { rot: '3.2deg',  w: '116%', dy: '0px',  r: '7px' }
+  { rot: '-3.1deg', w: '108%', dx: '-1px' },
+  { rot: '0.6deg',  w: '99%',  dx: '1px'  },
+  { rot: '-2.4deg', w: '112%', dx: '0px'  },
+  { rot: '-1.2deg', w: '103%', dx: '1px'  }
 ];
 
 var ladder  = document.getElementById('ladder');
-var parEl   = document.getElementById('par');
 var replayEl= document.getElementById('replay');
 var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var timers  = [];
@@ -505,13 +432,12 @@ function buildRung(step, index) {
     cell.className = 'cell' + (i === step.hit ? ' hit' : '');
     if (i === step.hit) {
       var m = MARKS[index];
-      var swipe = document.createElement('i');
-      swipe.className = 'swipe';
-      swipe.style.setProperty('--rot', m.rot);
-      swipe.style.setProperty('--w', m.w);
-      swipe.style.setProperty('--dy', m.dy);
-      swipe.style.setProperty('--r', m.r);
-      cell.appendChild(swipe);
+      var mark = document.createElement('i');
+      mark.className = 'mark';
+      mark.style.setProperty('--rot', m.rot);
+      mark.style.setProperty('--w', m.w);
+      mark.style.setProperty('--dx', m.dx);
+      cell.appendChild(mark);
     }
     var glyph = document.createElement('b');
     glyph.textContent = step.word[i];
@@ -540,12 +466,11 @@ function layout() {
 function run() {
   timers.forEach(clearTimeout);
   timers = [];
-  parEl.classList.remove('on');
   replayEl.classList.remove('on');
 
   var rungs = layout();
-  // The goal is legible from the start; only its swipe waits for the move that lands
-  // on it, so arriving still reads as arriving.
+  // The goal is legible from the start; only its mark and its green wait for the
+  // move that lands on it, so arriving still reads as arriving.
   rungs[rungs.length - 1].classList.remove('pending');
 
   if (reduced) {
@@ -554,7 +479,6 @@ function run() {
       rung.classList.add('drawn');
       if (i < rungs.length - 1) rung.classList.add('past');
     });
-    parEl.classList.add('on');
     replayEl.classList.add('on');
     return;
   }
@@ -564,7 +488,7 @@ function run() {
     timers.push(setTimeout(function () {
       rungs[i - 1].classList.add('past');
       rung.classList.remove('pending');
-      // One frame un-drawn, so the swipe has a state to animate out of and the
+      // One frame un-drawn, so the mark has a state to animate out of and the
       // glyph has a colour to transition from.
       requestAnimationFrame(function () {
         requestAnimationFrame(function () { rung.classList.add('drawn'); });
@@ -573,7 +497,6 @@ function run() {
   });
 
   timers.push(setTimeout(function () {
-    parEl.classList.add('on');
     replayEl.classList.add('on');
   }, 700 + LADDER.length * 850));
 }
