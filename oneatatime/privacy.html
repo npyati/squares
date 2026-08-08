@@ -22,10 +22,24 @@
       --primary:#FFE23D; --on-accent:#15151A;
     }
   }
+  /* The app sets every word in SF Pro Rounded — `.rounded` in Palette.swift.
+     `ui-rounded` reaches that exact face from the system on Apple platforms,
+     which is the best a web page can do: Apple's licence does not permit the
+     file to be served from a website. Nunito stands in everywhere else. */
+  @font-face {
+    font-family: 'Nunito';
+    src: url('fonts/nunito-latin.woff2') format('woff2');
+    /* One variable file whose default instance is ExtraLight. Without the range,
+       browsers read the whole face as weight 200 and fake anything heavier. */
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+
   * { margin:0; padding:0; box-sizing:border-box; }
   body {
-    font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", system-ui, sans-serif;
+    font-family: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system,
+                 BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
     background: var(--canvas);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
@@ -35,11 +49,13 @@
   }
   a { color: var(--ink); }
 
+  /* The wordmark, so it is set at Black like the landing page and like the app
+     sets its own name — Typeface.mark is `.black` in Palette.swift. */
   .home {
     display: inline-block;
     text-decoration: none;
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: -.3px;
     color: var(--ink);
     position: relative;

@@ -4,4 +4,8 @@
 
 # Claude folder
 .claude
-fonts/
+
+# Optic is licensed, not redistributable, and is injected at deploy time from
+# repository secrets. Rooted so it only covers this directory — one · at · a ·
+# time's face is OFL and ships in the repo at oneatatime/fonts/.
+/fonts/

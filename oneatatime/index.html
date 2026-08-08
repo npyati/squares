@@ -47,9 +47,39 @@
     }
   }
 
-  /* Optic, the face nickpyati.com is set in — used here only for the credit at the
-     very bottom, so that link reads as belonging to that site rather than this one.
-     The file is injected at deploy time from repository secrets. */
+  /* --- Two faces, and who owns them -----------------------------------------
+     Every name on this site is set in the face of the thing it names. This game
+     is rounded, the way the app is; squares is Optic, and so is nickpyati.com.
+     Nothing borrows the other's letterforms, on either page.
+     ------------------------------------------------------------------------ */
+
+  /* The app sets every word in SF Pro Rounded — `.rounded` in Palette.swift. On
+     Apple platforms `ui-rounded` reaches that exact face from the system, which
+     is the best this page can do: Apple's licence does not permit the file to be
+     served from a website. Everywhere else, Nunito stands in — the nearest
+     rounded sans that is free to host, and the reason this page no longer falls
+     back to a grotesque with none of the game's warmth. */
+  @font-face {
+    font-family: 'Nunito';
+    src: url('fonts/nunito-latin.woff2') format('woff2');
+    /* The range matters. This is one variable file whose default instance is
+       ExtraLight — declare it without a range and every browser reads the whole
+       face as weight 200, then fakes the Black by smearing the outlines. */
+    font-weight: 200 1000;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Optic, the face squares is set in — and nickpyati.com with it. Used here for
+     the squares row in the footer and for the credit below it, so both read as
+     belonging where they point rather than to this page. Injected at deploy time
+     from repository secrets. */
+  @font-face {
+    font-family: 'Optic';
+    src: url('/fonts/Optic-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-display: swap;
+  }
   @font-face {
     font-family: 'Optic';
     src: url('/fonts/Optic-Book.otf') format('opentype');
@@ -57,11 +87,17 @@
     font-display: swap;
   }
 
+  :root {
+    --face-oaat: ui-rounded, "SF Pro Rounded", "Nunito", -apple-system,
+                 BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    --face-squares: 'Optic', -apple-system, BlinkMacSystemFont,
+                    'Helvetica Neue', sans-serif;
+  }
+
   * { margin:0; padding:0; box-sizing:border-box; }
 
   body {
-    font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
-                 "Segoe UI", system-ui, sans-serif;
+    font-family: var(--face-oaat);
     background: var(--canvas);
     color: var(--ink);
     -webkit-font-smoothing: antialiased;
@@ -273,8 +309,10 @@
   .meta .sep { margin: 0 7px; opacity: .5; }
 
   /* The other game on this site. Squares is the headline, so it gets a real
-     row here rather than a link buried in the fine print — and its own app icon
-     rather than an approximation of it. */
+     row here rather than a link buried in the fine print — its own app icon
+     rather than an approximation of it, and its own face: this row is the one
+     thing on the page that isn't this game, so it is set in Optic and tracked
+     the way the squares homepage sets its own name. */
   .sibling {
     display: inline-flex;
     align-items: center;
@@ -288,16 +326,18 @@
   .sibling img { width: 30px; height: 30px; border-radius: 7px; display: block; }
   .sibling b {
     display: block;
-    font-size: 13.5px;
-    font-weight: 800;
+    font-family: var(--face-squares);
+    font-size: 14.5px;
+    font-weight: 700;
     letter-spacing: -.2px;
     color: var(--ink);
   }
   .sibling em {
     display: block;
+    font-family: var(--face-squares);
     font-style: normal;
     font-size: 11.5px;
-    font-weight: 500;
+    font-weight: 400;
     color: var(--ink-faint);
     margin-top: 1px;
   }
@@ -307,7 +347,7 @@
   .byline {
     display: inline-block;
     margin-top: 20px;
-    font-family: 'Optic', ui-rounded, system-ui, sans-serif;
+    font-family: var(--face-squares);
     font-size: 10px;
     font-weight: 400;
     letter-spacing: 0.22em;
