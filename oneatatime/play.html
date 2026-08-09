@@ -11,10 +11,22 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/icon-180.png">
     <meta property="og:title" content="one · at · a · time">
     <meta property="og:description" content="A word ladder puzzle. Change one letter at a time — every step has to be a real word.">
-    <meta property="og:image" content="https://squaresga.me/oneatatime/img/icon-1024.png">
+    <!-- The card a shared pair unfurls into. This used to be img/icon-1024.png, so a
+         message carrying a result showed the app icon: the same yellow A whatever you'd
+         played, next to a picture of the actual result that the app had already attached.
+         preview.png is the 1200x630 card, drawn from the game's own palette and
+         letterforms by ios/Tools/makepreview.swift in the oneatatime repo.
+
+         It stays generic on purpose. The pair rides in the query string, and these tags
+         are static, so an image naming a pair would be naming somebody else's. -->
+    <meta property="og:image" content="https://squaresga.me/oneatatime/preview.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="WARM to COLD — change one letter at a time">
     <meta property="og:url" content="https://squaresga.me/oneatatime/play.html">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
