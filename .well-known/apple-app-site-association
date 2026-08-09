@@ -6,6 +6,16 @@
         "components": [
           { "/": "/b/*" }
         ]
+      },
+      {
+        "appIDs": ["AMU26MJZ53.com.npyati.oneatatime"],
+        "components": [
+          {
+            "/": "/oneatatime/play.html",
+            "?": { "given": "?*", "target": "?*" },
+            "comment": "A shared pair, and only a shared pair. /oneatatime/ itself is left alone on purpose: it is the App Store marketing URL and has to open in a browser for someone who hasn't got the app, which is everyone it is written for."
+          }
+        ]
       }
     ]
   }
