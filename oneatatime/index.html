@@ -282,20 +282,18 @@
   }
   .rules span:last-child { color: var(--ink-faint); }
 
-  /* --- What's coming ------------------------------------------------------ */
-  /* No button. The thing being announced is the app, and there isn't one to link
-     to yet — a browser build advertised here would only compete with it. */
-  .coming {
+  /* --- The app ------------------------------------------------------------ */
+  /* One button, and it goes to the App Store. Apple's badge is carried the way
+     the squares homepage carries it: the artwork is Apple's and is not
+     restyled — only sized, and swapped light for dark. */
+  .badge {
+    display: block;
     margin-top: 40px;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 22px 13px 16px;
-    border: 1px solid var(--hairline);
-    border-radius: 13px;
+    transition: transform 0.15s ease, opacity 0.15s ease;
   }
-  .coming img { width: 34px; height: 34px; border-radius: 8px; display: block; }
-  .coming span { font-size: 15px; font-weight: 700; color: var(--ink); }
+  .badge img { display: block; height: 54px; width: auto; }
+  .badge:hover { transform: scale(1.03); opacity: 0.9; }
+  .badge:active { transform: scale(0.98); }
 
   /* --- Footer ------------------------------------------------------------- */
   footer {
@@ -394,13 +392,12 @@
     <span>Every step has to be a real word.</span>
   </div>
 
-  <!-- When the app ships, swap this block for the App Store badge, the same way
-       the squares homepage carries one:
-       <a href="https://apps.apple.com/app/idXXXXXXXXX"><picture>…</picture></a> -->
-  <div class="coming">
-    <img src="img/icon-180.png" alt="" width="34" height="34">
-    <span>iOS app coming soon</span>
-  </div>
+  <a class="badge" href="https://apps.apple.com/us/app/one-at-a-time-word-ladder/id6798544119">
+    <picture>
+      <source srcset="/img/app-store-badge-white.svg" media="(prefers-color-scheme: dark)">
+      <img src="/img/app-store-badge-black.svg" alt="Download on the App Store">
+    </picture>
+  </a>
 
 </main>
 
